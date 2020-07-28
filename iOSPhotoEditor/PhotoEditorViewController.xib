@@ -81,59 +81,82 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Doi-2Z-r5q">
-                            <rect key="frame" x="252" y="15" width="150" height="30"/>
+                            <rect key="frame" x="172" y="15" width="230" height="30"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaU-Bx-8JL" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K7b-m2-ICK" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ghm-bq-BmY">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kpe-Ez-Cio">
                                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                             <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
                                             <size key="titleShadowOffset" width="1" height="0.0"/>
-                                            <state key="normal" title="">
+                                            <state key="normal" title="">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.1532266695" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="cropButtonTapped:" destination="-1" eventType="touchUpInside" id="fa9-jd-guk"/>
+                                                <action selector="clearButtonTapped:" destination="-1" eventType="touchUpInside" id="gXm-sD-poT"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.30219927229999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="Ghm-bq-BmY" secondAttribute="trailing" id="Lbr-HQ-6D6"/>
-                                        <constraint firstAttribute="width" secondItem="aaU-Bx-8JL" secondAttribute="height" multiplier="1:1" id="OTh-X3-uWo"/>
-                                        <constraint firstAttribute="bottom" secondItem="Ghm-bq-BmY" secondAttribute="bottom" id="c5E-Bk-AKH"/>
-                                        <constraint firstItem="Ghm-bq-BmY" firstAttribute="leading" secondItem="aaU-Bx-8JL" secondAttribute="leading" id="qdP-kG-gkc"/>
-                                        <constraint firstItem="Ghm-bq-BmY" firstAttribute="top" secondItem="aaU-Bx-8JL" secondAttribute="top" id="yRC-Nj-A1t"/>
+                                        <constraint firstAttribute="bottom" secondItem="Kpe-Ez-Cio" secondAttribute="bottom" id="9IP-UV-Orz"/>
+                                        <constraint firstItem="Kpe-Ez-Cio" firstAttribute="leading" secondItem="K7b-m2-ICK" secondAttribute="leading" id="9dr-sI-KZL"/>
+                                        <constraint firstAttribute="trailing" secondItem="Kpe-Ez-Cio" secondAttribute="trailing" id="RcJ-Z4-BPS"/>
+                                        <constraint firstItem="Kpe-Ez-Cio" firstAttribute="top" secondItem="K7b-m2-ICK" secondAttribute="top" id="zBU-kl-ZwK"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4NB-NZ-6d9" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yT7-cR-7Nv" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
                                     <rect key="frame" x="40" y="0.0" width="30" height="30"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLX-iy-2Rc">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mW4-Jz-sic">
                                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                             <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
                                             <size key="titleShadowOffset" width="1" height="0.0"/>
-                                            <state key="normal" title="">
+                                            <state key="normal" title="">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.1532266695" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="stickersButtonTapped:" destination="-1" eventType="touchUpInside" id="snI-Px-Ngx"/>
+                                                <action selector="saveButtonTapped:" destination="-1" eventType="touchUpInside" id="Sc7-Zy-r4v"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.30219927229999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstItem="PLX-iy-2Rc" firstAttribute="top" secondItem="4NB-NZ-6d9" secondAttribute="top" id="BmY-G9-0ta"/>
-                                        <constraint firstAttribute="bottom" secondItem="PLX-iy-2Rc" secondAttribute="bottom" id="ZA9-S6-96s"/>
-                                        <constraint firstAttribute="trailing" secondItem="PLX-iy-2Rc" secondAttribute="trailing" id="geh-A5-zXR"/>
-                                        <constraint firstItem="PLX-iy-2Rc" firstAttribute="leading" secondItem="4NB-NZ-6d9" secondAttribute="leading" id="iZk-NV-rFB"/>
+                                        <constraint firstItem="mW4-Jz-sic" firstAttribute="top" secondItem="yT7-cR-7Nv" secondAttribute="top" id="AHe-4c-DQV"/>
+                                        <constraint firstAttribute="trailing" secondItem="mW4-Jz-sic" secondAttribute="trailing" id="ICd-ew-TbH"/>
+                                        <constraint firstAttribute="bottom" secondItem="mW4-Jz-sic" secondAttribute="bottom" id="M8D-vX-Fog"/>
+                                        <constraint firstItem="mW4-Jz-sic" firstAttribute="leading" secondItem="yT7-cR-7Nv" secondAttribute="leading" id="Pm2-JQ-d3u"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9z-l2-sO9" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
+                                    <rect key="frame" x="80" y="0.0" width="30" height="30"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wH-LJ-SyD">
+                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                            <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
+                                            <size key="titleShadowOffset" width="1" height="0.0"/>
+                                            <state key="normal" title="">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.1532266695" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="textButtonTapped:" destination="-1" eventType="touchUpInside" id="qcG-gq-62j"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.30219927229999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="0wH-LJ-SyD" firstAttribute="top" secondItem="b9z-l2-sO9" secondAttribute="top" id="Mpb-zT-1nU"/>
+                                        <constraint firstItem="0wH-LJ-SyD" firstAttribute="leading" secondItem="b9z-l2-sO9" secondAttribute="leading" id="bAb-CS-urY"/>
+                                        <constraint firstAttribute="bottom" secondItem="0wH-LJ-SyD" secondAttribute="bottom" id="qsn-r3-cg2"/>
+                                        <constraint firstAttribute="trailing" secondItem="0wH-LJ-SyD" secondAttribute="trailing" id="vQN-Fh-hPe"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4P0-Kd-zth" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
-                                    <rect key="frame" x="80" y="0.0" width="30" height="30"/>
+                                    <rect key="frame" x="120" y="0.0" width="30" height="30"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qm4-f6-DBr">
                                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -156,28 +179,53 @@
                                         <constraint firstAttribute="bottom" secondItem="Qm4-f6-DBr" secondAttribute="bottom" id="krV-2S-Rkf"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9z-l2-sO9" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
-                                    <rect key="frame" x="120" y="0.0" width="30" height="30"/>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4NB-NZ-6d9" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
+                                    <rect key="frame" x="160" y="0.0" width="30" height="30"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wH-LJ-SyD">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLX-iy-2Rc">
                                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                             <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
                                             <size key="titleShadowOffset" width="1" height="0.0"/>
-                                            <state key="normal" title="">
+                                            <state key="normal" title="">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.1532266695" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="textButtonTapped:" destination="-1" eventType="touchUpInside" id="qcG-gq-62j"/>
+                                                <action selector="stickersButtonTapped:" destination="-1" eventType="touchUpInside" id="snI-Px-Ngx"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.30219927229999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstItem="0wH-LJ-SyD" firstAttribute="top" secondItem="b9z-l2-sO9" secondAttribute="top" id="Mpb-zT-1nU"/>
-                                        <constraint firstItem="0wH-LJ-SyD" firstAttribute="leading" secondItem="b9z-l2-sO9" secondAttribute="leading" id="bAb-CS-urY"/>
-                                        <constraint firstAttribute="bottom" secondItem="0wH-LJ-SyD" secondAttribute="bottom" id="qsn-r3-cg2"/>
-                                        <constraint firstAttribute="trailing" secondItem="0wH-LJ-SyD" secondAttribute="trailing" id="vQN-Fh-hPe"/>
+                                        <constraint firstItem="PLX-iy-2Rc" firstAttribute="top" secondItem="4NB-NZ-6d9" secondAttribute="top" id="BmY-G9-0ta"/>
+                                        <constraint firstAttribute="bottom" secondItem="PLX-iy-2Rc" secondAttribute="bottom" id="ZA9-S6-96s"/>
+                                        <constraint firstAttribute="trailing" secondItem="PLX-iy-2Rc" secondAttribute="trailing" id="geh-A5-zXR"/>
+                                        <constraint firstItem="PLX-iy-2Rc" firstAttribute="leading" secondItem="4NB-NZ-6d9" secondAttribute="leading" id="iZk-NV-rFB"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaU-Bx-8JL" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
+                                    <rect key="frame" x="200" y="0.0" width="30" height="30"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ghm-bq-BmY">
+                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                            <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
+                                            <size key="titleShadowOffset" width="1" height="0.0"/>
+                                            <state key="normal" title="">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.1532266695" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="cropButtonTapped:" destination="-1" eventType="touchUpInside" id="fa9-jd-guk"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.30219927229999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Ghm-bq-BmY" secondAttribute="trailing" id="Lbr-HQ-6D6"/>
+                                        <constraint firstAttribute="width" secondItem="aaU-Bx-8JL" secondAttribute="height" multiplier="1:1" id="OTh-X3-uWo"/>
+                                        <constraint firstAttribute="bottom" secondItem="Ghm-bq-BmY" secondAttribute="bottom" id="c5E-Bk-AKH"/>
+                                        <constraint firstItem="Ghm-bq-BmY" firstAttribute="leading" secondItem="aaU-Bx-8JL" secondAttribute="leading" id="qdP-kG-gkc"/>
+                                        <constraint firstItem="Ghm-bq-BmY" firstAttribute="top" secondItem="aaU-Bx-8JL" secondAttribute="top" id="yRC-Nj-A1t"/>
                                     </constraints>
                                 </view>
                             </subviews>
@@ -235,35 +283,10 @@
                     <rect key="frame" x="0.0" y="802" width="414" height="60"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ZRl-89-gRO">
-                            <rect key="frame" x="12" y="15" width="120" height="30"/>
+                            <rect key="frame" x="12" y="15" width="30" height="30"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yT7-cR-7Nv" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mW4-Jz-sic">
-                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                            <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
-                                            <size key="titleShadowOffset" width="1" height="0.0"/>
-                                            <state key="normal" title="">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.1532266695" colorSpace="calibratedRGB"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="saveButtonTapped:" destination="-1" eventType="touchUpInside" id="Sc7-Zy-r4v"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.30219927229999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                    <constraints>
-                                        <constraint firstItem="mW4-Jz-sic" firstAttribute="top" secondItem="yT7-cR-7Nv" secondAttribute="top" id="AHe-4c-DQV"/>
-                                        <constraint firstAttribute="trailing" secondItem="mW4-Jz-sic" secondAttribute="trailing" id="ICd-ew-TbH"/>
-                                        <constraint firstAttribute="bottom" secondItem="mW4-Jz-sic" secondAttribute="bottom" id="M8D-vX-Fog"/>
-                                        <constraint firstItem="mW4-Jz-sic" firstAttribute="leading" secondItem="yT7-cR-7Nv" secondAttribute="leading" id="Pm2-JQ-d3u"/>
-                                        <constraint firstAttribute="width" secondItem="yT7-cR-7Nv" secondAttribute="height" multiplier="1:1" id="QLa-AU-dW6"/>
-                                    </constraints>
-                                </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zIG-Ea-ajz" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
-                                    <rect key="frame" x="45" y="0.0" width="30" height="30"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlw-H0-WcJ">
                                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -281,33 +304,10 @@
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.30219927229999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="zlw-H0-WcJ" firstAttribute="leading" secondItem="zIG-Ea-ajz" secondAttribute="leading" id="AS4-AH-PQ3"/>
+                                        <constraint firstAttribute="width" secondItem="zIG-Ea-ajz" secondAttribute="height" multiplier="1:1" id="U5U-Bd-Cgl"/>
                                         <constraint firstAttribute="trailing" secondItem="zlw-H0-WcJ" secondAttribute="trailing" id="lxw-io-2R1"/>
                                         <constraint firstAttribute="bottom" secondItem="zlw-H0-WcJ" secondAttribute="bottom" id="nwI-AY-jVJ"/>
                                         <constraint firstItem="zlw-H0-WcJ" firstAttribute="top" secondItem="zIG-Ea-ajz" secondAttribute="top" id="sYo-Ql-0k8"/>
-                                    </constraints>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K7b-m2-ICK" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
-                                    <rect key="frame" x="90" y="0.0" width="30" height="30"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kpe-Ez-Cio">
-                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                            <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
-                                            <size key="titleShadowOffset" width="1" height="0.0"/>
-                                            <state key="normal" title="">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.1532266695" colorSpace="calibratedRGB"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="clearButtonTapped:" destination="-1" eventType="touchUpInside" id="gXm-sD-poT"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.30219927229999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="Kpe-Ez-Cio" secondAttribute="bottom" id="9IP-UV-Orz"/>
-                                        <constraint firstItem="Kpe-Ez-Cio" firstAttribute="leading" secondItem="K7b-m2-ICK" secondAttribute="leading" id="9dr-sI-KZL"/>
-                                        <constraint firstAttribute="trailing" secondItem="Kpe-Ez-Cio" secondAttribute="trailing" id="RcJ-Z4-BPS"/>
-                                        <constraint firstItem="Kpe-Ez-Cio" firstAttribute="top" secondItem="K7b-m2-ICK" secondAttribute="top" id="zBU-kl-ZwK"/>
                                     </constraints>
                                 </view>
                             </subviews>
