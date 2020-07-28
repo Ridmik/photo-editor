@@ -322,7 +322,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                     <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
                                     <size key="titleShadowOffset" width="1" height="0.0"/>
-                                    <state key="normal" title="">
+                                    <state key="normal" title="">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.1532266695" colorSpace="calibratedRGB"/>
                                     </state>
@@ -331,7 +331,7 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.30219927229999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.23921568627450979" green="0.74509803921568629" blue="0.69411764705882351" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="wNH-TU-KxG" secondAttribute="trailing" id="39Q-J1-Lk9"/>
                                 <constraint firstAttribute="bottom" secondItem="wNH-TU-KxG" secondAttribute="bottom" id="DrX-YF-cIe"/>
