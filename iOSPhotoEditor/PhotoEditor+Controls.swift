@@ -117,21 +117,48 @@ extension PhotoEditorViewController {
     func hideControls() {
         for control in hiddenControls {
             switch control {
-                
             case .clear:
-                clearButton.isHidden = true
+                if let circularView = clearButton.superview as? CircularView {
+                    circularView.isHidden = true
+                } else {
+                    clearButton.isHidden = true
+                }
             case .crop:
-                cropButton.isHidden = true
+                if let circularView = cropButton.superview as? CircularView {
+                    circularView.isHidden = true
+                } else {
+                    cropButton.isHidden = true
+                }
             case .draw:
-                drawButton.isHidden = true
+                if let circularView = drawButton.superview as? CircularView {
+                    circularView.isHidden = true
+                } else {
+                    drawButton.isHidden = true
+                }
             case .save:
-                saveButton.isHidden = true
+                if let circularView = saveButton.superview as? CircularView {
+                    circularView.isHidden = true
+                } else {
+                    saveButton.isHidden = true
+                }
             case .share:
-                shareButton.isHidden = true
+                if let circularView = shareButton.superview as? CircularView {
+                    circularView.isHidden = true
+                } else {
+                    shareButton.isHidden = true
+                }
             case .sticker:
-                stickerButton.isHidden = true
+                if let circularView = stickerButton.superview as? CircularView {
+                    circularView.isHidden = true
+                } else {
+                    stickerButton.isHidden = true
+                }
             case .text:
-                stickerButton.isHidden = true
+                if let circularView = textButton.superview as? CircularView {
+                    circularView.isHidden = true
+                } else {
+                    textButton.isHidden = true
+                }
             }
         }
     }
