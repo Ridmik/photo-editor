@@ -37,6 +37,7 @@
 		A5C2A3D6BC7FC6CAC2658B00C14C0AAF /* PhotoEditor+Drawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE7FAA141E0C0CC553B4579C159450D /* PhotoEditor+Drawing.swift */; };
 		A9A96547C0B9CC70A3CF6A1CF3DF8E86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC48BCE33483D47E42B5BBB267F06B8 /* LaunchScreen.storyboard */; };
 		AD0B94BF66B5161D68007030B45757FA /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2D71A20ED9F3BD33552CC4508D1803 /* CropViewController.swift */; };
+		AF85A78224D026CF00A8C72C /* CircularButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF85A78124D026CF00A8C72C /* CircularButton.swift */; };
 		BE6ED67FC981FB3C737D11D07AAFAF23 /* UIImageView+Alpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F4151DF652BE2E9B9F7767016BFFDD /* UIImageView+Alpha.swift */; };
 		BE813230C93635D7C86ED53D03176055 /* PhotoEditor+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F595F7F53AE5DD32B9EB52D334FBEA9C /* PhotoEditor+Keyboard.swift */; };
 		C2AD8B55233BA0A62A4BA1862A0CA7FC /* UIImage+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DB95E93A7903FA2B9E43EB2BE146A /* UIImage+Size.swift */; };
@@ -103,6 +104,7 @@
 		A2D7DF5E29511C26038B641F12AA1D30 /* iOSPhotoEditor.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = iOSPhotoEditor.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AA585A9C750559A9562EBCE2D3287BD8 /* EmojisCollectionViewDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EmojisCollectionViewDelegate.swift; path = iOSPhotoEditor/EmojisCollectionViewDelegate.swift; sourceTree = "<group>"; };
 		ACE663A8B720C5083D9CF0D0B1DCC84B /* ColorCollectionViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = ColorCollectionViewCell.xib; path = iOSPhotoEditor/ColorCollectionViewCell.xib; sourceTree = "<group>"; };
+		AF85A78124D026CF00A8C72C /* CircularButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButton.swift; sourceTree = "<group>"; };
 		AFECBC24E09D0D25F822C27BD944AFD4 /* Pods-Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Example-frameworks.sh"; sourceTree = "<group>"; };
 		B0DB9EAE254A3F23448F39F183200227 /* Protocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Protocols.swift; path = iOSPhotoEditor/Protocols.swift; sourceTree = "<group>"; };
 		B45138496B85A072654D1D0F8EBBEDE5 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				933DB95E93A7903FA2B9E43EB2BE146A /* UIImage+Size.swift */,
 				09F4151DF652BE2E9B9F7767016BFFDD /* UIImageView+Alpha.swift */,
 				903AAE29047A979D2895A551C18843B3 /* UIView+Image.swift */,
+				AF85A78124D026CF00A8C72C /* CircularButton.swift */,
 				B1B35616F2BDC1FFBAF5927BD365D10F /* Pod */,
 				A6B430E6F077B89E37B3D240995C235F /* Resources */,
 				0F3C1E4ACB0FC7EFC11DEC70A33DAB50 /* Support Files */,
@@ -424,6 +427,7 @@
 				BE813230C93635D7C86ED53D03176055 /* PhotoEditor+Keyboard.swift in Sources */,
 				7C933C94BC60344EB0E9826FECEFB3B9 /* PhotoEditor+StickersViewController.swift in Sources */,
 				3F666DDABDCF5D535CE2CCA0964AFB5B /* PhotoEditor+UITextView.swift in Sources */,
+				AF85A78224D026CF00A8C72C /* CircularButton.swift in Sources */,
 				8B5C09645865265F8D9548C709B19B48 /* PhotoEditorViewController.swift in Sources */,
 				235A229BB8420644F892B1C20AE64666 /* Protocols.swift in Sources */,
 				29A0AC8D25B3E9C899A7DEF3B5EF4846 /* ResizeControl.swift in Sources */,
