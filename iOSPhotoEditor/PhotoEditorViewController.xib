@@ -88,7 +88,7 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ghm-bq-BmY">
                                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                            <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="20"/>
+                                            <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
                                             <size key="titleShadowOffset" width="1" height="0.0"/>
                                             <state key="normal" title="">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -113,7 +113,7 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLX-iy-2Rc">
                                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                            <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="20"/>
+                                            <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
                                             <size key="titleShadowOffset" width="1" height="0.0"/>
                                             <state key="normal" title="">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -137,7 +137,7 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qm4-f6-DBr">
                                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                            <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="20"/>
+                                            <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
                                             <size key="titleShadowOffset" width="1" height="0.0"/>
                                             <state key="normal" title="">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -161,7 +161,7 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0wH-LJ-SyD">
                                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                            <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="20"/>
+                                            <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
                                             <size key="titleShadowOffset" width="1" height="0.0"/>
                                             <state key="normal" title="">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -190,7 +190,7 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9an-1W-thw">
                                     <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                    <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="20"/>
+                                    <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
                                     <size key="titleShadowOffset" width="1" height="0.0"/>
                                     <state key="normal" title="">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -242,7 +242,7 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mW4-Jz-sic">
                                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                            <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="20"/>
+                                            <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
                                             <size key="titleShadowOffset" width="1" height="0.0"/>
                                             <state key="normal" title="">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -267,7 +267,7 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlw-H0-WcJ">
                                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                            <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="20"/>
+                                            <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
                                             <size key="titleShadowOffset" width="1" height="0.0"/>
                                             <state key="normal" title="">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -291,7 +291,7 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kpe-Ez-Cio">
                                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                            <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="20"/>
+                                            <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
                                             <size key="titleShadowOffset" width="1" height="0.0"/>
                                             <state key="normal" title="">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -316,11 +316,11 @@
                             </constraints>
                         </stackView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8yF-p0-39q" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
-                            <rect key="frame" x="342" y="0.0" width="60" height="60"/>
+                            <rect key="frame" x="362" y="10" width="40" height="40"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNH-TU-KxG">
-                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                    <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                    <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
                                     <size key="titleShadowOffset" width="1" height="0.0"/>
                                     <state key="normal" title="">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -337,6 +337,7 @@
                                 <constraint firstAttribute="bottom" secondItem="wNH-TU-KxG" secondAttribute="bottom" id="DrX-YF-cIe"/>
                                 <constraint firstItem="wNH-TU-KxG" firstAttribute="leading" secondItem="8yF-p0-39q" secondAttribute="leading" id="GBk-VU-L0c"/>
                                 <constraint firstItem="wNH-TU-KxG" firstAttribute="top" secondItem="8yF-p0-39q" secondAttribute="top" id="QAv-M6-eqe"/>
+                                <constraint firstAttribute="height" constant="40" id="bzw-RN-uH4"/>
                                 <constraint firstAttribute="width" secondItem="8yF-p0-39q" secondAttribute="height" multiplier="1:1" id="vVe-KV-JwS"/>
                             </constraints>
                         </view>
@@ -345,8 +346,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="7QB-HT-iOq"/>
                         <constraint firstAttribute="trailing" secondItem="8yF-p0-39q" secondAttribute="trailing" constant="12" id="7zS-4F-Vdu"/>
-                        <constraint firstItem="8yF-p0-39q" firstAttribute="top" secondItem="87h-1G-t5q" secondAttribute="top" id="UaL-Zf-2kt"/>
-                        <constraint firstAttribute="bottom" secondItem="8yF-p0-39q" secondAttribute="bottom" id="c3o-6s-HID"/>
+                        <constraint firstItem="8yF-p0-39q" firstAttribute="centerY" secondItem="87h-1G-t5q" secondAttribute="centerY" id="JlL-7Y-4aX"/>
                         <constraint firstItem="ZRl-89-gRO" firstAttribute="leading" secondItem="87h-1G-t5q" secondAttribute="leading" constant="12" id="mn5-Hu-M5A"/>
                         <constraint firstItem="ZRl-89-gRO" firstAttribute="centerY" secondItem="87h-1G-t5q" secondAttribute="centerY" id="ux6-Dn-Clt"/>
                     </constraints>
