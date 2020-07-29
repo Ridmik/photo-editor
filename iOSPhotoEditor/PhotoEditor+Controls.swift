@@ -10,10 +10,11 @@ import Foundation
 import UIKit
 
 // MARK: - Control
-public enum control {
+public enum Control {
     case crop
     case sticker
     case draw
+    case marker
     case text
     case save
     case share
@@ -50,6 +51,11 @@ extension PhotoEditorViewController {
     }
     
     @IBAction func markerButtonTapped(_ sender: UIButton) {
+        drawColor = .white
+        isDrawing = true
+        canvasImageView.isUserInteractionEnabled = false
+        doneButton.isHidden = false
+        hideToolbar(hide: true)
     }
 
     @IBAction func textButtonTapped(_ sender: Any) {
@@ -80,6 +86,8 @@ extension PhotoEditorViewController {
         canvasImageView.isUserInteractionEnabled = true
         hideToolbar(hide: false)
         isDrawing = false
+        // reset drawing color
+        drawColor = drawColorInitial
     }
     
     //MARK: Bottom Toolbar
@@ -137,6 +145,12 @@ extension PhotoEditorViewController {
                     circularView.isHidden = true
                 } else {
                     drawButton.isHidden = true
+                }
+            case .marker:
+                if let circularView = markerButton.superview as? CircularView {
+                    circularView.isHidden = true
+                } else {
+                    markerButton.isHidden = true
                 }
             case .save:
                 if let circularView = saveButton.superview as? CircularView {

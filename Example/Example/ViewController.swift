@@ -62,7 +62,7 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
             photoEditor.stickers.append(UIImage(named: i.description )!)
         }
         
-        //To hide controls - array of enum control
+        //To hide controls - array of enum Control
         //photoEditor.hiddenControls = [.crop, .draw, .share]
         photoEditor.modalPresentationStyle = UIModalPresentationStyle.currentContext //or .overFullScreen for transparency
         present(photoEditor, animated: true, completion: nil)
