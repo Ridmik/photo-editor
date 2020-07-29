@@ -29,6 +29,7 @@
                 <outlet property="drawButton" destination="Qm4-f6-DBr" id="yHl-a1-GgN"/>
                 <outlet property="imageView" destination="5rw-9v-ExQ" id="5lP-en-DGc"/>
                 <outlet property="imageViewHeightConstraint" destination="DdY-qb-dfp" id="ZY9-Em-cs4"/>
+                <outlet property="markerButton" destination="6Pz-bD-BB9" id="j24-Ct-CFV"/>
                 <outlet property="saveButton" destination="mW4-Jz-sic" id="1Uj-nU-EU1"/>
                 <outlet property="shareButton" destination="zlw-H0-WcJ" id="OZv-z0-8s8"/>
                 <outlet property="stickerButton" destination="PLX-iy-2Rc" id="tzt-tW-R1r"/>
@@ -78,7 +79,7 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Doi-2Z-r5q">
-                            <rect key="frame" x="172" y="15" width="230" height="30"/>
+                            <rect key="frame" x="132" y="15" width="270" height="30"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K7b-m2-ICK" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -152,8 +153,31 @@
                                         <constraint firstAttribute="trailing" secondItem="0wH-LJ-SyD" secondAttribute="trailing" id="vQN-Fh-hPe"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4P0-Kd-zth" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PbO-ui-w92" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
                                     <rect key="frame" x="120" y="0.0" width="30" height="30"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Pz-bD-BB9">
+                                            <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                            <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
+                                            <state key="normal" title="">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="markerButtonTapped:" destination="-1" eventType="touchUpInside" id="Zg2-5U-Lcn"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.30219927229999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="6Pz-bD-BB9" firstAttribute="top" secondItem="PbO-ui-w92" secondAttribute="top" id="PFz-g4-3ZR"/>
+                                        <constraint firstAttribute="bottom" secondItem="6Pz-bD-BB9" secondAttribute="bottom" id="e2F-8a-2Ls"/>
+                                        <constraint firstAttribute="trailing" secondItem="6Pz-bD-BB9" secondAttribute="trailing" id="h08-I3-s9b"/>
+                                        <constraint firstItem="6Pz-bD-BB9" firstAttribute="leading" secondItem="PbO-ui-w92" secondAttribute="leading" id="y91-PN-7gl"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4P0-Kd-zth" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
+                                    <rect key="frame" x="160" y="0.0" width="30" height="30"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qm4-f6-DBr">
                                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -177,7 +201,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4NB-NZ-6d9" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
-                                    <rect key="frame" x="160" y="0.0" width="30" height="30"/>
+                                    <rect key="frame" x="200" y="0.0" width="30" height="30"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLX-iy-2Rc">
                                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -201,7 +225,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaU-Bx-8JL" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
-                                    <rect key="frame" x="200" y="0.0" width="30" height="30"/>
+                                    <rect key="frame" x="240" y="0.0" width="30" height="30"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ghm-bq-BmY">
                                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>

@@ -48,6 +48,9 @@ extension PhotoEditorViewController {
         colorPickerView.isHidden = false
         hideToolbar(hide: true)
     }
+    
+    @IBAction func markerButtonTapped(_ sender: UIButton) {
+    }
 
     @IBAction func textButtonTapped(_ sender: Any) {
         isTyping = true
