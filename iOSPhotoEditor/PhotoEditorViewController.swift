@@ -34,6 +34,7 @@ public final class PhotoEditorViewController: UIViewController {
     @IBOutlet weak var cropButton: UIButton!
     @IBOutlet weak var stickerButton: UIButton!
     @IBOutlet weak var drawButton: UIButton!
+    @IBOutlet weak var markerButton: UIButton!
     @IBOutlet weak var textButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
@@ -53,10 +54,11 @@ public final class PhotoEditorViewController: UIViewController {
     var colorsCollectionViewDelegate: ColorsCollectionViewDelegate!
     
     // list of controls to be hidden
-    public var hiddenControls : [control] = []
+    public var hiddenControls : [Control] = []
     
     var stickersVCIsVisible = false
     var drawColor: UIColor = UIColor.black
+    var drawColorInitial = UIColor.black
     var textColor: UIColor = UIColor.white
     var isDrawing: Bool = false
     var lastPoint: CGPoint!

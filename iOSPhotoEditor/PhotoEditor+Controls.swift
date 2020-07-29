@@ -10,10 +10,11 @@ import Foundation
 import UIKit
 
 // MARK: - Control
-public enum control {
+public enum Control {
     case crop
     case sticker
     case draw
+    case marker
     case text
     case save
     case share
@@ -48,6 +49,14 @@ extension PhotoEditorViewController {
         colorPickerView.isHidden = false
         hideToolbar(hide: true)
     }
+    
+    @IBAction func markerButtonTapped(_ sender: UIButton) {
+        drawColor = .white
+        isDrawing = true
+        canvasImageView.isUserInteractionEnabled = false
+        doneButton.isHidden = false
+        hideToolbar(hide: true)
+    }
 
     @IBAction func textButtonTapped(_ sender: Any) {
         isTyping = true
@@ -77,6 +86,8 @@ extension PhotoEditorViewController {
         canvasImageView.isUserInteractionEnabled = true
         hideToolbar(hide: false)
         isDrawing = false
+        // reset drawing color
+        drawColor = drawColorInitial
     }
     
     //MARK: Bottom Toolbar
@@ -117,21 +128,54 @@ extension PhotoEditorViewController {
     func hideControls() {
         for control in hiddenControls {
             switch control {
-                
             case .clear:
-                clearButton.isHidden = true
+                if let circularView = clearButton.superview as? CircularView {
+                    circularView.isHidden = true
+                } else {
+                    clearButton.isHidden = true
+                }
             case .crop:
-                cropButton.isHidden = true
+                if let circularView = cropButton.superview as? CircularView {
+                    circularView.isHidden = true
+                } else {
+                    cropButton.isHidden = true
+                }
             case .draw:
-                drawButton.isHidden = true
+                if let circularView = drawButton.superview as? CircularView {
+                    circularView.isHidden = true
+                } else {
+                    drawButton.isHidden = true
+                }
+            case .marker:
+                if let circularView = markerButton.superview as? CircularView {
+                    circularView.isHidden = true
+                } else {
+                    markerButton.isHidden = true
+                }
             case .save:
-                saveButton.isHidden = true
+                if let circularView = saveButton.superview as? CircularView {
+                    circularView.isHidden = true
+                } else {
+                    saveButton.isHidden = true
+                }
             case .share:
-                shareButton.isHidden = true
+                if let circularView = shareButton.superview as? CircularView {
+                    circularView.isHidden = true
+                } else {
+                    shareButton.isHidden = true
+                }
             case .sticker:
-                stickerButton.isHidden = true
+                if let circularView = stickerButton.superview as? CircularView {
+                    circularView.isHidden = true
+                } else {
+                    stickerButton.isHidden = true
+                }
             case .text:
-                stickerButton.isHidden = true
+                if let circularView = textButton.superview as? CircularView {
+                    circularView.isHidden = true
+                } else {
+                    textButton.isHidden = true
+                }
             }
         }
     }

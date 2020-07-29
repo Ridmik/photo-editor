@@ -19,7 +19,6 @@ class ColorsCollectionViewDelegate: NSObject, UICollectionViewDataSource, UIColl
                   UIColor.darkGray,
                   UIColor.gray,
                   UIColor.lightGray,
-                  UIColor.white,
                   UIColor.blue,
                   UIColor.green,
                   UIColor.red,
