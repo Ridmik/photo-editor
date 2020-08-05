@@ -31,11 +31,13 @@ extension PhotoEditorViewController {
     }
 
     @IBAction func cropButtonTapped(_ sender: UIButton) {
-        let controller = CropViewController()
-        controller.delegate = self
-        controller.image = image
-        let navController = UINavigationController(rootViewController: controller)
-        present(navController, animated: true, completion: nil)
+        if case .photo(let image) = self.media {
+            let controller = CropViewController()
+            controller.delegate = self
+            controller.image = image
+            let navController = UINavigationController(rootViewController: controller)
+            present(navController, animated: true, completion: nil)
+        }
     }
 
     @IBAction func stickersButtonTapped(_ sender: Any) {

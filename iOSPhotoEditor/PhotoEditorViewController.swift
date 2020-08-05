@@ -53,7 +53,7 @@ public final class PhotoEditorViewController: UIViewController {
     public var hiddenControls : [Control] = []
     
     // MARK:- Internal properties
-    var image: UIImage?
+    let media: Media
     var colorsCollectionViewDelegate: ColorsCollectionViewDelegate!
     var stickersViewController: StickersViewController!
     
@@ -73,7 +73,12 @@ public final class PhotoEditorViewController: UIViewController {
     var isTyping: Bool = false
     
     public init(image: UIImage) {
-        self.image = image
+        self.media = .photo(image)
+        super.init(nibName: String(describing: PhotoEditorViewController.self), bundle: Bundle(for: PhotoEditorViewController.self))
+    }
+    
+    public init(videoURL: URL) {
+        self.media = .video(videoURL)
         super.init(nibName: String(describing: PhotoEditorViewController.self), bundle: Bundle(for: PhotoEditorViewController.self))
     }
     
@@ -89,7 +94,8 @@ public final class PhotoEditorViewController: UIViewController {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        if let image = self.image {
+        
+        if case .photo(let image) = self.media {
             self.setImageView(image: image)
         }
         
@@ -161,3 +167,9 @@ extension PhotoEditorViewController: ColorDelegate {
     }
 }
 
+extension PhotoEditorViewController {
+    enum Media {
+        case photo(UIImage)
+        case video(URL)
+    }
+}
