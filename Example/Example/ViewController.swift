@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func pickImageButtonTapped(_ sender: Any) {
+    @IBAction func pickMediaButtonTapped(_ sender: Any) {
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.sourceType = .photoLibrary
