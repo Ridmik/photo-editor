@@ -13,7 +13,7 @@ public final class PhotoEditorViewController: UIViewController {
     /** holding the 2 imageViews original image and drawing & stickers */
     @IBOutlet weak var canvasView: UIView!
     //To hold the image
-    @IBOutlet var imageView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
     //To hold the drawings and stickers
     @IBOutlet weak var canvasImageView: UIImageView!
@@ -40,21 +40,22 @@ public final class PhotoEditorViewController: UIViewController {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
     
-    public var image: UIImage?
-    /**
-     Array of Stickers -UIImage- that the user will choose from
-     */
+    // MARK:- Public properties
+    /// Array of Stickers `UIImage` that the user will choose from
     public var stickers : [UIImage] = []
-    /**
-     Array of Colors that will show while drawing or typing
-     */
+    
+    /// Array of Colors that will show while drawing or typing
     public var colors  : [UIColor] = []
     
     public var photoEditorDelegate: PhotoEditorDelegate?
-    var colorsCollectionViewDelegate: ColorsCollectionViewDelegate!
     
-    // list of controls to be hidden
+    /// List of controls to be hidden
     public var hiddenControls : [Control] = []
+    
+    // MARK:- Internal properties
+    var image: UIImage?
+    var colorsCollectionViewDelegate: ColorsCollectionViewDelegate!
+    var stickersViewController: StickersViewController!
     
     var stickersVCIsVisible = false
     var drawColor: UIColor = UIColor.black
@@ -71,9 +72,15 @@ public final class PhotoEditorViewController: UIViewController {
     var imageViewToPan: UIImageView?
     var isTyping: Bool = false
     
+    public init(image: UIImage) {
+        self.image = image
+        super.init(nibName: String(describing: PhotoEditorViewController.self), bundle: Bundle(for: PhotoEditorViewController.self))
+    }
     
-    var stickersViewController: StickersViewController!
-
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     //Register Custom font before we load XIB
     public override func loadView() {
         registerFont()
@@ -82,7 +89,9 @@ public final class PhotoEditorViewController: UIViewController {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
-        self.setImageView(image: image!)
+        if let image = self.image {
+            self.setImageView(image: image)
+        }
         
         deleteView.layer.cornerRadius = deleteView.bounds.height / 2
         deleteView.layer.borderWidth = 2.0
@@ -151,8 +160,4 @@ extension PhotoEditorViewController: ColorDelegate {
         }
     }
 }
-
-
-
-
 

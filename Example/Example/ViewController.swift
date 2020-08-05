@@ -44,9 +44,8 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         picker.dismiss(animated: true, completion: nil)
         
         if let image = info[.originalImage] as? UIImage {
-            let photoEditor = PhotoEditorViewController(nibName:"PhotoEditorViewController",bundle: Bundle(for: PhotoEditorViewController.self))
+            let photoEditor = PhotoEditorViewController(image: image) // PhotoEditorViewController(nibName:"PhotoEditorViewController",bundle: Bundle(for: PhotoEditorViewController.self))
             photoEditor.photoEditorDelegate = self
-            photoEditor.image = image
             //Colors for drawing and Text, If not set default values will be used
             //photoEditor.colors = [.red, .blue, .green]
             
@@ -57,7 +56,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             
             //To hide controls - array of enum Control
             //photoEditor.hiddenControls = [.crop, .draw, .share]
-            photoEditor.modalPresentationStyle = UIModalPresentationStyle.currentContext //or .overFullScreen for transparency
+            photoEditor.modalPresentationStyle = .fullScreen
             present(photoEditor, animated: true, completion: nil)
         } else if let videoURL = info[.mediaURL] as? URL {
             print("Handle video located at: \(videoURL)")

@@ -9,9 +9,8 @@
 import Foundation
 import UIKit
 /**
- - didSelectView
- - didSelectImage
- - stickersViewDidDisappear
+ - doneEditing
+ - canceledEditing
  */
 
 public protocol PhotoEditorDelegate {
