@@ -44,7 +44,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         picker.dismiss(animated: true, completion: nil)
         
         if let image = info[.originalImage] as? UIImage {
-            let photoEditor = PhotoEditorViewController(image: image) // PhotoEditorViewController(nibName:"PhotoEditorViewController",bundle: Bundle(for: PhotoEditorViewController.self))
+            let photoEditor = PhotoEditorViewController.makeForImage(image)
             photoEditor.photoEditorDelegate = self
             //Colors for drawing and Text, If not set default values will be used
             //photoEditor.colors = [.red, .blue, .green]

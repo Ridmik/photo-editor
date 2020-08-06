@@ -53,7 +53,7 @@ public final class PhotoEditorViewController: UIViewController {
     public var hiddenControls : [Control] = []
     
     // MARK:- Internal properties
-    let media: Media
+    var media: Media!
     var colorsCollectionViewDelegate: ColorsCollectionViewDelegate!
     var stickersViewController: StickersViewController!
     
@@ -72,18 +72,20 @@ public final class PhotoEditorViewController: UIViewController {
     var imageViewToPan: UIImageView?
     var isTyping: Bool = false
     
-    public init(image: UIImage) {
-        self.media = .photo(image)
-        super.init(nibName: String(describing: PhotoEditorViewController.self), bundle: Bundle(for: PhotoEditorViewController.self))
-    }
-    
-    public init(videoURL: URL) {
-        self.media = .video(videoURL)
-        super.init(nibName: String(describing: PhotoEditorViewController.self), bundle: Bundle(for: PhotoEditorViewController.self))
-    }
-    
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+    }
+    
+    public static func makeForImage(_ image: UIImage) -> PhotoEditorViewController {
+        let editor = UIStoryboard(name: "Editor", bundle: Bundle(for: self)).instantiateInitialViewController() as! PhotoEditorViewController
+        editor.media = .photo(image)
+        return editor
+    }
+    
+    public static func makeForVideo(_ url: URL) -> PhotoEditorViewController {
+        let editor = UIStoryboard(name: "Editor", bundle: Bundle(for: self)).instantiateInitialViewController() as! PhotoEditorViewController
+        editor.media = .video(url)
+        return editor
     }
     
     //Register Custom font before we load XIB
