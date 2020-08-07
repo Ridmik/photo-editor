@@ -21,6 +21,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wN2-TL-kX0" customClass="VideoPlayer" customModule="iOSPhotoEditor" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h7I-tm-jmb" userLabel="canvas">
                                 <rect key="frame" x="0.0" y="114.5" width="414" height="667"/>
                                 <subviews>
@@ -409,16 +413,19 @@
                         <constraints>
                             <constraint firstItem="XSs-5t-mWL" firstAttribute="leading" secondItem="aSK-7g-yya" secondAttribute="leading" id="21F-Mj-1y6"/>
                             <constraint firstItem="h7I-tm-jmb" firstAttribute="centerY" secondItem="aSK-7g-yya" secondAttribute="centerY" id="4EL-cd-CrZ"/>
+                            <constraint firstItem="wN2-TL-kX0" firstAttribute="leading" secondItem="aSK-7g-yya" secondAttribute="leading" id="5Qk-9B-1zP"/>
                             <constraint firstAttribute="trailing" secondItem="hGV-eN-jgj" secondAttribute="trailing" constant="12" id="7yB-MH-Fl1"/>
                             <constraint firstItem="eR9-Dj-3Es" firstAttribute="top" secondItem="aSK-7g-yya" secondAttribute="top" id="Axx-Y7-Wmh"/>
                             <constraint firstItem="JlT-KT-Bym" firstAttribute="leading" secondItem="aSK-7g-yya" secondAttribute="leading" id="JZX-9y-bbv"/>
                             <constraint firstAttribute="trailing" secondItem="MiU-ky-TGE" secondAttribute="trailing" id="LAf-tD-DNN"/>
                             <constraint firstAttribute="trailing" secondItem="eR9-Dj-3Es" secondAttribute="trailing" id="LyX-xr-sBw"/>
                             <constraint firstAttribute="trailing" secondItem="ze0-hP-vvd" secondAttribute="trailing" id="QP6-Z5-XSp"/>
+                            <constraint firstItem="wN2-TL-kX0" firstAttribute="top" secondItem="aSK-7g-yya" secondAttribute="top" id="QcA-Md-efd"/>
                             <constraint firstItem="kas-2g-oaa" firstAttribute="centerX" secondItem="aSK-7g-yya" secondAttribute="centerX" id="Sh1-UB-SD9"/>
                             <constraint firstItem="h7I-tm-jmb" firstAttribute="leading" secondItem="aSK-7g-yya" secondAttribute="leading" id="bwg-h5-RKt"/>
                             <constraint firstAttribute="trailing" secondItem="JlT-KT-Bym" secondAttribute="trailing" id="c0Z-iU-z87"/>
                             <constraint firstItem="hGV-eN-jgj" firstAttribute="top" secondItem="k7E-He-fig" secondAttribute="top" constant="16" id="dx1-14-uvM"/>
+                            <constraint firstAttribute="bottom" secondItem="wN2-TL-kX0" secondAttribute="bottom" id="eIr-0m-5LS"/>
                             <constraint firstItem="MiU-ky-TGE" firstAttribute="leading" secondItem="aSK-7g-yya" secondAttribute="leading" id="gBE-qO-3hK"/>
                             <constraint firstItem="k7E-He-fig" firstAttribute="bottom" secondItem="MiU-ky-TGE" secondAttribute="bottom" id="gfw-NL-Kds"/>
                             <constraint firstItem="ze0-hP-vvd" firstAttribute="leading" secondItem="aSK-7g-yya" secondAttribute="leading" id="iii-TY-DEE"/>
@@ -429,6 +436,7 @@
                             <constraint firstAttribute="trailing" secondItem="XSs-5t-mWL" secondAttribute="trailing" id="sx0-h1-c2r"/>
                             <constraint firstItem="JlT-KT-Bym" firstAttribute="bottom" secondItem="eR9-Dj-3Es" secondAttribute="bottom" id="uIJ-8d-fPb"/>
                             <constraint firstItem="k7E-He-fig" firstAttribute="bottom" secondItem="ze0-hP-vvd" secondAttribute="bottom" id="xPj-oU-Uzd"/>
+                            <constraint firstAttribute="trailing" secondItem="wN2-TL-kX0" secondAttribute="trailing" id="xrL-Qp-Tu7"/>
                             <constraint firstItem="ze0-hP-vvd" firstAttribute="top" secondItem="XSs-5t-mWL" secondAttribute="top" id="yEx-wk-vHc"/>
                             <constraint firstAttribute="bottom" secondItem="XSs-5t-mWL" secondAttribute="bottom" id="zMA-6Q-cEc"/>
                         </constraints>
@@ -456,6 +464,7 @@
                         <outlet property="textButton" destination="xDK-JG-luZ" id="kYf-4O-fZh"/>
                         <outlet property="topGradient" destination="eR9-Dj-3Es" id="Hfz-tJ-SFE"/>
                         <outlet property="topToolbar" destination="JlT-KT-Bym" id="H8Y-71-r67"/>
+                        <outlet property="videoPlayerView" destination="wN2-TL-kX0" id="OPi-mP-leq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O3Q-w7-ZRR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

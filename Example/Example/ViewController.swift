@@ -59,7 +59,9 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             photoEditor.modalPresentationStyle = .fullScreen
             present(photoEditor, animated: true, completion: nil)
         } else if let videoURL = info[.mediaURL] as? URL {
-            print("Handle video located at: \(videoURL)")
+            let editor = PhotoEditorViewController.makeForVideo(videoURL)
+            editor.modalPresentationStyle = .fullScreen
+            present(editor, animated: true, completion: nil)
         }
         
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 public final class PhotoEditorViewController: UIViewController {
     
@@ -17,7 +18,8 @@ public final class PhotoEditorViewController: UIViewController {
     @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
     //To hold the drawings and stickers
     @IBOutlet weak var canvasImageView: UIImageView!
-
+    @IBOutlet weak var videoPlayerView: VideoPlayer!
+    
     @IBOutlet weak var topToolbar: UIView!
     @IBOutlet weak var bottomToolbar: UIView!
 
@@ -72,6 +74,9 @@ public final class PhotoEditorViewController: UIViewController {
     var imageViewToPan: UIImageView?
     var isTyping: Bool = false
     
+    private let queuePlayer = AVQueuePlayer()
+    private var playerLooper: AVPlayerLooper?
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -99,6 +104,11 @@ public final class PhotoEditorViewController: UIViewController {
         
         if case .photo(let image) = self.media {
             self.setImageView(image: image)
+        } else if case .video(let url) = self.media {
+            let asset = AVURLAsset(url: url)
+            let item = AVPlayerItem(asset: asset)
+            playerLooper = AVPlayerLooper(player: queuePlayer, templateItem: item)
+            videoPlayerView.player = queuePlayer
         }
         
         deleteView.layer.cornerRadius = deleteView.bounds.height / 2
@@ -122,6 +132,20 @@ public final class PhotoEditorViewController: UIViewController {
         configureCollectionView()
         stickersViewController = StickersViewController(nibName: "StickersViewController", bundle: Bundle(for: StickersViewController.self))
         hideControls()
+    }
+    
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if case .video(_) = self.media {
+            queuePlayer.play()
+        }
+    }
+    
+    public override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if case .video(_) = self.media {
+            queuePlayer.pause()
+        }
     }
     
     func configureCollectionView() {
