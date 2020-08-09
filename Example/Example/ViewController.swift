@@ -8,13 +8,23 @@
 
 import UIKit
 import iOSPhotoEditor
+import AVFoundation
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var videoPlayerView: VideoPlayer!
+    
+    private let queuePlayer = AVQueuePlayer()
+    private var playerLooper: AVPlayerLooper?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        queuePlayer.pause()
     }
     
     @IBAction func pickMediaButtonTapped(_ sender: Any) {
@@ -30,6 +40,16 @@ extension ViewController: PhotoEditorDelegate {
     
     func doneEditing(image: UIImage) {
         imageView.image = image
+    }
+    
+    func doneEditingVideo(url: URL) {
+        // play video
+        let asset = AVURLAsset(url: url)
+        let item = AVPlayerItem(asset: asset)
+        playerLooper = AVPlayerLooper(player: queuePlayer, templateItem: item)
+        videoPlayerView.player = queuePlayer
+        
+        queuePlayer.play()
     }
     
     func canceledEditing() {
@@ -60,6 +80,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             present(photoEditor, animated: true, completion: nil)
         } else if let videoURL = info[.mediaURL] as? URL {
             let editor = PhotoEditorViewController.makeForVideo(videoURL)
+            editor.photoEditorDelegate = self
             editor.modalPresentationStyle = .fullScreen
             present(editor, animated: true, completion: nil)
         }

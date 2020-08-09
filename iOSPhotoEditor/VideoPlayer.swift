@@ -7,9 +7,9 @@
 
 import AVFoundation
 
-class VideoPlayer: UIView {
+public class VideoPlayer: UIView {
     
-    override class var layerClass: AnyClass {
+    public override class var layerClass: AnyClass {
         return AVPlayerLayer.self
     }
     
@@ -17,7 +17,7 @@ class VideoPlayer: UIView {
         return layer as! AVPlayerLayer
     }
     
-    var player: AVPlayer! {
+    public var player: AVPlayer! {
         set {
             playerLayer.player = newValue
         }

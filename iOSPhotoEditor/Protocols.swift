@@ -18,6 +18,10 @@ public protocol PhotoEditorDelegate {
      - Parameter image: edited Image
      */
     func doneEditing(image: UIImage)
+    
+    /// Method to be executed when video editing is completed.
+    /// - Parameter url: The local URL where the video is saved temporarily. 
+    func doneEditingVideo(url: URL)
     /**
      StickersViewController did Disappear
      */

@@ -114,9 +114,21 @@ extension PhotoEditorViewController {
     }
     
     @IBAction func continueButtonPressed(_ sender: Any) {
-        let img = self.canvasView.toImage()
-        photoEditorDelegate?.doneEditing(image: img)
-        self.dismiss(animated: true, completion: nil)
+        switch self.media {
+        case .photo(_):
+            let img = self.canvasView.toImage()
+            photoEditorDelegate?.doneEditing(image: img)
+            self.dismiss(animated: true, completion: nil)
+        case .video(_):
+            exportAsVideo { url in
+                if let url = url {
+                    self.photoEditorDelegate?.doneEditingVideo(url: url)
+                }
+                self.dismiss(animated: true, completion: nil)
+            }
+        case .none:
+            break
+        }
     }
 
     //MAKR: helper methods

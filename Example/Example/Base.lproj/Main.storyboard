@@ -19,9 +19,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="dgq-H0-4ZX">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXj-z2-Tjk">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="598"/>
-                            </imageView>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0K7-Et-D8z" customClass="VideoPlayer" customModule="iOSPhotoEditor">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="598"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="dgq-H0-4ZX">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="598"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="0K7-Et-D8z" secondAttribute="bottom" id="Buk-ov-gsm"/>
+                                    <constraint firstAttribute="trailing" secondItem="dgq-H0-4ZX" secondAttribute="trailing" id="JMF-ls-puw"/>
+                                    <constraint firstAttribute="bottom" secondItem="dgq-H0-4ZX" secondAttribute="bottom" id="UNJ-4f-tVk"/>
+                                    <constraint firstItem="dgq-H0-4ZX" firstAttribute="leading" secondItem="NXj-z2-Tjk" secondAttribute="leading" id="ZvG-uQ-AKa"/>
+                                    <constraint firstItem="0K7-Et-D8z" firstAttribute="leading" secondItem="NXj-z2-Tjk" secondAttribute="leading" id="bvg-oe-HCc"/>
+                                    <constraint firstAttribute="trailing" secondItem="0K7-Et-D8z" secondAttribute="trailing" id="hi5-mv-zoX"/>
+                                    <constraint firstItem="0K7-Et-D8z" firstAttribute="top" secondItem="NXj-z2-Tjk" secondAttribute="top" id="oeb-q5-0uH"/>
+                                    <constraint firstItem="dgq-H0-4ZX" firstAttribute="top" secondItem="NXj-z2-Tjk" secondAttribute="top" id="ovg-kT-P00"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vca-SA-ouA">
                                 <rect key="frame" x="133.5" y="618" width="108" height="37"/>
                                 <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="22"/>
@@ -33,16 +53,17 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="dgq-H0-4ZX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Exd-Mo-T5c"/>
+                            <constraint firstAttribute="trailing" secondItem="NXj-z2-Tjk" secondAttribute="trailing" id="DeE-Zz-fdm"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Vca-SA-ouA" secondAttribute="bottom" constant="12" id="KQ7-NG-HXi"/>
-                            <constraint firstItem="Vca-SA-ouA" firstAttribute="top" secondItem="dgq-H0-4ZX" secondAttribute="bottom" constant="20" id="RRT-Fc-EHq"/>
-                            <constraint firstAttribute="trailing" secondItem="dgq-H0-4ZX" secondAttribute="trailing" id="bPV-c3-Rna"/>
+                            <constraint firstItem="Vca-SA-ouA" firstAttribute="top" secondItem="NXj-z2-Tjk" secondAttribute="bottom" constant="20" id="O8G-lG-BXx"/>
+                            <constraint firstItem="NXj-z2-Tjk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ShH-vM-q0N"/>
                             <constraint firstItem="Vca-SA-ouA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jee-cX-iEm"/>
-                            <constraint firstItem="dgq-H0-4ZX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="pyx-f2-KUn"/>
+                            <constraint firstItem="NXj-z2-Tjk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="nhB-cP-Fsa"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="dgq-H0-4ZX" id="s6h-ow-nHh"/>
+                        <outlet property="videoPlayerView" destination="0K7-Et-D8z" id="bgN-ab-G0T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
