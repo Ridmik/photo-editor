@@ -127,7 +127,9 @@ extension PhotoEditorViewController {
             instruction.setTransform(assetTrack.preferredTransform.concatenating(scale), at: .zero)
         } else {
             let scale = CGAffineTransform(scaleX: scaleToFitRatio, y: scaleToFitRatio)
-            let translation = CGAffineTransform(translationX: 0, y: videoSize.width / 2)
+            // FIXME: Not sure if this 44 value is correct for all device sizes. May need to replace with the height of navigation bar.
+            let yFix = (videoSize.width / 2) + 44
+            let translation = CGAffineTransform(translationX: 0, y: yFix)
             var concat = assetTrack.preferredTransform.concatenating(scale).concatenating(translation)
             if assetInfo.orientation == .down {
                 let fixUpsideDown = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
