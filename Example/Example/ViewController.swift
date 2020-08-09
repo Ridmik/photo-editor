@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageView.isHidden = true
+        videoPlayerView.isHidden = true
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -40,6 +42,8 @@ extension ViewController: PhotoEditorDelegate {
     
     func doneEditing(image: UIImage) {
         imageView.image = image
+        imageView.isHidden = false
+        videoPlayerView.isHidden = true
     }
     
     func doneEditingVideo(url: URL) {
@@ -50,6 +54,8 @@ extension ViewController: PhotoEditorDelegate {
         videoPlayerView.player = queuePlayer
         
         queuePlayer.play()
+        imageView.isHidden = true
+        videoPlayerView.isHidden = false
     }
     
     func canceledEditing() {

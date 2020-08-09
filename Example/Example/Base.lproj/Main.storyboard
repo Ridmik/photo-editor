@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -11,23 +12,19 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXj-z2-Tjk">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="598"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0K7-Et-D8z" customClass="VideoPlayer" customModule="iOSPhotoEditor">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="598"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="dgq-H0-4ZX">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="598"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -43,9 +40,17 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vca-SA-ouA">
-                                <rect key="frame" x="133.5" y="618" width="108" height="37"/>
-                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="22"/>
-                                <state key="normal" title="Pick Media"/>
+                                <rect key="frame" x="100" y="619" width="175" height="36"/>
+                                <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <state key="normal" title="Pick Media">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="18"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="pickMediaButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vn4-ox-Mta"/>
                                 </connections>
@@ -54,12 +59,14 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="NXj-z2-Tjk" secondAttribute="trailing" id="DeE-Zz-fdm"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Vca-SA-ouA" secondAttribute="bottom" constant="12" id="KQ7-NG-HXi"/>
-                            <constraint firstItem="Vca-SA-ouA" firstAttribute="top" secondItem="NXj-z2-Tjk" secondAttribute="bottom" constant="20" id="O8G-lG-BXx"/>
+                            <constraint firstItem="Vca-SA-ouA" firstAttribute="leading" secondItem="rPw-QB-c9S" secondAttribute="leading" constant="100" id="HZf-Ts-VNv"/>
+                            <constraint firstItem="rPw-QB-c9S" firstAttribute="bottom" secondItem="Vca-SA-ouA" secondAttribute="bottom" constant="12" id="KQ7-NG-HXi"/>
                             <constraint firstItem="NXj-z2-Tjk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ShH-vM-q0N"/>
-                            <constraint firstItem="Vca-SA-ouA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="jee-cX-iEm"/>
-                            <constraint firstItem="NXj-z2-Tjk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="nhB-cP-Fsa"/>
+                            <constraint firstAttribute="bottom" secondItem="NXj-z2-Tjk" secondAttribute="bottom" id="TwC-8S-gVS"/>
+                            <constraint firstItem="rPw-QB-c9S" firstAttribute="trailing" secondItem="Vca-SA-ouA" secondAttribute="trailing" constant="100" id="Ze9-ck-ffq"/>
+                            <constraint firstItem="NXj-z2-Tjk" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="nhB-cP-Fsa"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="rPw-QB-c9S"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="dgq-H0-4ZX" id="s6h-ow-nHh"/>
