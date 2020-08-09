@@ -137,6 +137,7 @@ public final class PhotoEditorViewController: UIViewController {
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if case .video(_) = self.media {
+//            imageViewHeightConstraint.constant = videoPlayerView.playerLayer.videoRect.height
             queuePlayer.play()
         }
     }

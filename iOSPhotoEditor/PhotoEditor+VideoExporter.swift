@@ -8,15 +8,16 @@
 import AVFoundation
 
 extension PhotoEditorViewController {
-    
+    // This implementation is a combination of below two:
+    // https://www.raywenderlich.com/6236502-avfoundation-tutorial-adding-overlays-and-animations-to-videos
+    // https://www.raywenderlich.com/10857372-how-to-play-record-and-merge-videos-in-ios-and-swift
     func exportAsVideo(onComplete: @escaping (URL?) -> Void) {
         if case .video(let videoURL) = self.media {
             
             let asset = AVURLAsset(url: videoURL)
-            let composition = AVMutableComposition()
+            let mixComposition = AVMutableComposition()
             
-            guard
-                let compositionTrack = composition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid),
+            guard let compositionTrack = mixComposition.addMutableTrack(withMediaType: .video, preferredTrackID: kCMPersistentTrackID_Invalid),
                 let assetTrack = asset.tracks(withMediaType: .video).first
                 else {
                     print("Something is wrong with the asset.")
@@ -29,7 +30,7 @@ extension PhotoEditorViewController {
                 try compositionTrack.insertTimeRange(timeRange, of: assetTrack, at: .zero)
                 
                 if let audioAssetTrack = asset.tracks(withMediaType: .audio).first,
-                    let compositionAudioTrack = composition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid) {
+                    let compositionAudioTrack = mixComposition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid) {
                     try compositionAudioTrack.insertTimeRange(timeRange, of: audioAssetTrack, at: .zero)
                 }
             } catch {
@@ -38,25 +39,30 @@ extension PhotoEditorViewController {
                 return
             }
             
-            compositionTrack.preferredTransform = assetTrack.preferredTransform
-            let videoInfo = orientation(from: assetTrack.preferredTransform)
+            let videoSize = view.bounds.size
             
-            let videoSize: CGSize
-            if videoInfo.isPortrait {
-                videoSize = CGSize(width: assetTrack.naturalSize.height, height: assetTrack.naturalSize.width)
-            } else {
-                videoSize = assetTrack.naturalSize
-            }
+            // Composition Instructions
+            let compositionInstruction = AVMutableVideoCompositionInstruction()
+            compositionInstruction.timeRange = CMTimeRangeMake(start: .zero, duration: asset.duration)
             
+            // Set up the layer instruction
+            let layerInstruction = videoCompositionLayerInstruction(compositionTrack: compositionTrack, assetTrack: assetTrack, videoSize: videoSize)
+            
+            // Add layer instruction to composition instruction and create a mutable video composition
+            compositionInstruction.layerInstructions = [layerInstruction]
+            
+            let videoComposition = AVMutableVideoComposition()
+            videoComposition.instructions = [compositionInstruction]
+            videoComposition.frameDuration = CMTimeMake(value: 1, timescale: 30)
+            videoComposition.renderSize = videoSize
+            
+            // prepare canvas layer
             let backgroundLayer = CALayer()
             backgroundLayer.frame = CGRect(origin: .zero, size: videoSize)
             let videoLayer = CALayer()
             videoLayer.frame = CGRect(origin: .zero, size: videoSize)
             let overlayLayer = CALayer()
             overlayLayer.frame = CGRect(origin: .zero, size: videoSize)
-            
-            backgroundLayer.backgroundColor = UIColor.red.cgColor
-            videoLayer.frame = CGRect(x: 20, y: 20, width: videoSize.width - 40, height: videoSize.height - 40)
             
             add(image: canvasImageView.layerImage, to: overlayLayer, videoSize: videoSize)
             
@@ -66,18 +72,10 @@ extension PhotoEditorViewController {
             outputLayer.addSublayer(videoLayer)
             outputLayer.addSublayer(overlayLayer)
             
-            let instruction = AVMutableVideoCompositionInstruction()
-            instruction.timeRange = CMTimeRange(start: .zero, duration: composition.duration)
-            let layerInstruction = compositionLayerInstruction(for: compositionTrack, assetTrack: assetTrack)
-            instruction.layerInstructions = [layerInstruction]
-            
-            let videoComposition = AVMutableVideoComposition()
-            videoComposition.instructions = [instruction]
-            videoComposition.renderSize = videoSize
-            videoComposition.frameDuration = CMTime(value: 1, timescale: 30)    // 30 fps
+            // add the canvas layer to video composition
             videoComposition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, in: outputLayer)
             
-            guard let export = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetHighestQuality)
+            guard let export = AVAssetExportSession(asset: mixComposition, presetName: AVAssetExportPresetHighestQuality)
                 else {
                     print("Cannot create export session.")
                     onComplete(nil)
@@ -106,9 +104,43 @@ extension PhotoEditorViewController {
                     }
                 }
             }
+            
         } else {
             onComplete(nil)
         }
+    }
+    
+}
+
+extension PhotoEditorViewController {
+    
+    private func videoCompositionLayerInstruction(compositionTrack: AVCompositionTrack, assetTrack: AVAssetTrack, videoSize: CGSize) -> AVMutableVideoCompositionLayerInstruction {
+        
+        let instruction = AVMutableVideoCompositionLayerInstruction(assetTrack: compositionTrack)
+        
+        let assetInfo = orientation(from: assetTrack.preferredTransform)
+        
+        var scaleToFitRatio = videoSize.width / assetTrack.naturalSize.width
+        if assetInfo.isPortrait {
+            scaleToFitRatio = videoSize.width / assetTrack.naturalSize.height
+            let scale = CGAffineTransform(scaleX: scaleToFitRatio, y: scaleToFitRatio)
+            instruction.setTransform(assetTrack.preferredTransform.concatenating(scale), at: .zero)
+        } else {
+            let scale = CGAffineTransform(scaleX: scaleToFitRatio, y: scaleToFitRatio)
+            let translation = CGAffineTransform(translationX: 0, y: videoSize.width / 2)
+            var concat = assetTrack.preferredTransform.concatenating(scale).concatenating(translation)
+            if assetInfo.orientation == .down {
+                let fixUpsideDown = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
+                let windowBounds = videoSize
+                let yFix = assetTrack.naturalSize.height + windowBounds.height
+                let centerFix = CGAffineTransform(translationX: assetTrack.naturalSize.width, y: yFix)
+                concat = fixUpsideDown.concatenating(centerFix).concatenating(scale)
+            }
+            instruction.setTransform(concat, at: .zero)
+        }
+        
+        return instruction
+        
     }
     
     private func orientation(from transform: CGAffineTransform) -> (orientation: UIImage.Orientation, isPortrait: Bool) {
@@ -145,20 +177,4 @@ extension PhotoEditorViewController {
         layer.addSublayer(imageLayer)
     }
     
-    private func compositionLayerInstruction(for track: AVCompositionTrack, assetTrack: AVAssetTrack) -> AVMutableVideoCompositionLayerInstruction {
-        let instruction = AVMutableVideoCompositionLayerInstruction(assetTrack: track)
-        let transform = assetTrack.preferredTransform
-        
-        instruction.setTransform(transform, at: .zero)
-        
-        return instruction
-    }
-    
-}
-
-extension FileManager {
-    func removeFileIfNecessary(at url: URL) throws {
-        guard fileExists(atPath: url.path) else { return }
-        try removeItem(at: url)
-    }
 }
