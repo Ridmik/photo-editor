@@ -50,7 +50,7 @@ extension PhotoEditorViewController {
             compositionInstruction.timeRange = CMTimeRangeMake(start: .zero, duration: asset.duration)
             
             // Set up the layer instruction
-            let layerInstruction = videoCompositionLayerInstruction(compositionTrack: compositionTrack, assetTrack: assetTrack, videoSize: renderSize, topOffset: topOffset)
+            let layerInstruction = videoCompositionLayerInstruction(compositionTrack: compositionTrack, assetTrack: assetTrack, renderSize: renderSize, topOffset: topOffset)
             
             // Add layer instruction to composition instruction and create a mutable video composition
             compositionInstruction.layerInstructions = [layerInstruction]
@@ -68,7 +68,7 @@ extension PhotoEditorViewController {
             let overlayLayer = CALayer()
             overlayLayer.frame = CGRect(origin: .zero, size: renderSize)
             
-            add(image: canvasImageView.layerImage, to: overlayLayer, videoSize: renderSize)
+            add(image: canvasImageView.layerImage, to: overlayLayer)
             
             let outputLayer = CALayer()
             outputLayer.frame = CGRect(origin: .zero, size: renderSize)
@@ -118,28 +118,28 @@ extension PhotoEditorViewController {
 
 extension PhotoEditorViewController {
     
-    private func videoCompositionLayerInstruction(compositionTrack: AVCompositionTrack, assetTrack: AVAssetTrack, videoSize: CGSize, topOffset: CGFloat) -> AVMutableVideoCompositionLayerInstruction {
+    private func videoCompositionLayerInstruction(compositionTrack: AVCompositionTrack, assetTrack: AVAssetTrack, renderSize: CGSize, topOffset: CGFloat) -> AVMutableVideoCompositionLayerInstruction {
         
         let instruction = AVMutableVideoCompositionLayerInstruction(assetTrack: compositionTrack)
         
         let assetInfo = orientation(from: assetTrack.preferredTransform)
         
-        var scaleToFitRatio = videoSize.width / assetTrack.naturalSize.width
+        var scaleToFitRatio = renderSize.width / assetTrack.naturalSize.width
         if assetInfo.isPortrait {
-            scaleToFitRatio = videoSize.width / assetTrack.naturalSize.height
+            scaleToFitRatio = renderSize.width / assetTrack.naturalSize.height
             let scale = CGAffineTransform(scaleX: scaleToFitRatio, y: scaleToFitRatio)
             instruction.setTransform(assetTrack.preferredTransform.concatenating(scale), at: .zero)
         } else {
             let scale = CGAffineTransform(scaleX: scaleToFitRatio, y: scaleToFitRatio)
-            let yFix = (videoSize.width / 2) + topOffset
-            let translation = CGAffineTransform(translationX: 0, y: yFix)
+            let translationY = (renderSize.width / 2) + topOffset
+            let translation = CGAffineTransform(translationX: 0, y: translationY)
             var concat = assetTrack.preferredTransform.concatenating(scale).concatenating(translation)
             if assetInfo.orientation == .down {
                 let fixUpsideDown = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
-                let windowBounds = videoSize
-                let yFix = assetTrack.naturalSize.height + windowBounds.height
-                let centerFix = CGAffineTransform(translationX: assetTrack.naturalSize.width, y: yFix)
-                concat = fixUpsideDown.concatenating(centerFix).concatenating(scale)
+                let windowBounds = renderSize
+                let translationY = assetTrack.naturalSize.height + windowBounds.height
+                let translation = CGAffineTransform(translationX: assetTrack.naturalSize.width, y: translationY)
+                concat = fixUpsideDown.concatenating(translation).concatenating(scale)
             }
             instruction.setTransform(concat, at: .zero)
         }
@@ -166,16 +166,8 @@ extension PhotoEditorViewController {
         return (assetOrientation, isPortrait)
     }
     
-    private func add(image: UIImage, to layer: CALayer, videoSize: CGSize) {
+    private func add(image: UIImage, to layer: CALayer) {
         let imageLayer = CALayer()
-        /*
-        // commented out the code used as here: https://www.raywenderlich.com/6236502-avfoundation-tutorial-adding-overlays-and-animations-to-videos
-        // because it doesn't play well with wide videos
-        let aspect: CGFloat = image.size.width / image.size.height
-        let width = videoSize.width
-        let height = width / aspect
-        imageLayer.frame = CGRect(x: 0, y: 0, width: width, height: height)
-        */
         imageLayer.frame = layer.frame
         imageLayer.contents = image.cgImage
         imageLayer.contentsGravity = .resizeAspectFill  // check .resizeAspect too
