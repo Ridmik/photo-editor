@@ -108,7 +108,19 @@ extension PhotoEditorViewController {
     @IBAction func saveButtonTapped(_ sender: AnyObject) {
         switch self.media {
         case .photo(_):
-            UIImageWriteToSavedPhotosAlbum(canvasView.toImage(), self, #selector(PhotoEditorViewController.image(_:withPotentialError:contextInfo:)), nil)
+            let image = canvasView.toImage()
+            let savePhotoToPhotos = {
+                let changes: (() -> Void) = {
+                    PHAssetChangeRequest.creationRequestForAsset(from: image)
+                }
+                PHPhotoLibrary.shared().performChanges(changes) { saved, error in
+                    DispatchQueue.main.async {
+                        self.photoLibraryChangePerformed(media: self.media, saved: saved, error: error)
+                    }
+                }
+            }
+            
+            self.performWithCheckingPhotoLibraryAuthorization(performBlock: savePhotoToPhotos)
             
         case .video(_):
             exportAsVideo { [weak self] videoURL in
@@ -164,14 +176,7 @@ extension PhotoEditorViewController {
         }
     }
 
-    //MAKR: helper methods
-    
-    @objc func image(_ image: UIImage, withPotentialError error: NSErrorPointer, contextInfo: UnsafeRawPointer) {
-        let alert = UIAlertController(title: "Image Saved", message: "Image successfully saved to Photos library", preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
+    // MARK: Helper methods
     private func performWithCheckingPhotoLibraryAuthorization(performBlock: @escaping (() -> Void)) {
         // Ensure permission to access Photo Library
         if PHPhotoLibrary.authorizationStatus() != .authorized {
