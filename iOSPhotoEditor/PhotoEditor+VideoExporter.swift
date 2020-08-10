@@ -39,14 +39,18 @@ extension PhotoEditorViewController {
                 return
             }
             
-            let videoSize = view.bounds.size
+            let videoSize = view.bounds.size    // logical size of video shown on screen
+            let scale = UIScreen.main.scale
+            let renderSize = CGSize(width: videoSize.width * scale, height: videoSize.height * scale)
+            // FIXME: Not sure if this 44 value is correct for all device sizes. May need to replace with the height of navigation bar.
+            let topOffset = 44 * scale
             
             // Composition Instructions
             let compositionInstruction = AVMutableVideoCompositionInstruction()
             compositionInstruction.timeRange = CMTimeRangeMake(start: .zero, duration: asset.duration)
             
             // Set up the layer instruction
-            let layerInstruction = videoCompositionLayerInstruction(compositionTrack: compositionTrack, assetTrack: assetTrack, videoSize: videoSize)
+            let layerInstruction = videoCompositionLayerInstruction(compositionTrack: compositionTrack, assetTrack: assetTrack, videoSize: renderSize, topOffset: topOffset)
             
             // Add layer instruction to composition instruction and create a mutable video composition
             compositionInstruction.layerInstructions = [layerInstruction]
@@ -54,20 +58,20 @@ extension PhotoEditorViewController {
             let videoComposition = AVMutableVideoComposition()
             videoComposition.instructions = [compositionInstruction]
             videoComposition.frameDuration = CMTimeMake(value: 1, timescale: 30)
-            videoComposition.renderSize = videoSize
+            videoComposition.renderSize = renderSize
             
             // prepare canvas layer
             let backgroundLayer = CALayer()
-            backgroundLayer.frame = CGRect(origin: .zero, size: videoSize)
+            backgroundLayer.frame = CGRect(origin: .zero, size: renderSize)
             let videoLayer = CALayer()
-            videoLayer.frame = CGRect(origin: .zero, size: videoSize)
+            videoLayer.frame = CGRect(origin: .zero, size: renderSize)
             let overlayLayer = CALayer()
-            overlayLayer.frame = CGRect(origin: .zero, size: videoSize)
+            overlayLayer.frame = CGRect(origin: .zero, size: renderSize)
             
-            add(image: canvasImageView.layerImage, to: overlayLayer, videoSize: videoSize)
+            add(image: canvasImageView.layerImage, to: overlayLayer, videoSize: renderSize)
             
             let outputLayer = CALayer()
-            outputLayer.frame = CGRect(origin: .zero, size: videoSize)
+            outputLayer.frame = CGRect(origin: .zero, size: renderSize)
             outputLayer.addSublayer(backgroundLayer)
             outputLayer.addSublayer(videoLayer)
             outputLayer.addSublayer(overlayLayer)
@@ -114,7 +118,7 @@ extension PhotoEditorViewController {
 
 extension PhotoEditorViewController {
     
-    private func videoCompositionLayerInstruction(compositionTrack: AVCompositionTrack, assetTrack: AVAssetTrack, videoSize: CGSize) -> AVMutableVideoCompositionLayerInstruction {
+    private func videoCompositionLayerInstruction(compositionTrack: AVCompositionTrack, assetTrack: AVAssetTrack, videoSize: CGSize, topOffset: CGFloat) -> AVMutableVideoCompositionLayerInstruction {
         
         let instruction = AVMutableVideoCompositionLayerInstruction(assetTrack: compositionTrack)
         
@@ -127,8 +131,7 @@ extension PhotoEditorViewController {
             instruction.setTransform(assetTrack.preferredTransform.concatenating(scale), at: .zero)
         } else {
             let scale = CGAffineTransform(scaleX: scaleToFitRatio, y: scaleToFitRatio)
-            // FIXME: Not sure if this 44 value is correct for all device sizes. May need to replace with the height of navigation bar.
-            let yFix = (videoSize.width / 2) + 44
+            let yFix = (videoSize.width / 2) + topOffset
             let translation = CGAffineTransform(translationX: 0, y: yFix)
             var concat = assetTrack.preferredTransform.concatenating(scale).concatenating(translation)
             if assetInfo.orientation == .down {
