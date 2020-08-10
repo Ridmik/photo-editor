@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Photos
 
 // MARK: - Control
 public enum Control {
@@ -95,7 +96,29 @@ extension PhotoEditorViewController {
     //MARK: Bottom Toolbar
     
     @IBAction func saveButtonTapped(_ sender: AnyObject) {
-        UIImageWriteToSavedPhotosAlbum(canvasView.toImage(),self, #selector(PhotoEditorViewController.image(_:withPotentialError:contextInfo:)), nil)
+        switch self.media {
+        case .photo(_):
+            UIImageWriteToSavedPhotosAlbum(canvasView.toImage(), self, #selector(PhotoEditorViewController.image(_:withPotentialError:contextInfo:)), nil)
+            
+        case .video(_):
+            exportAsVideo { [weak self] videoURL in
+                
+                guard let self = self, let videoURL = videoURL else { return }
+                let saveVideoToPhotos = {
+                    let changes: (() -> Void) = { PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: videoURL) }
+                    PHPhotoLibrary.shared().performChanges(changes) { saved, error in
+                        DispatchQueue.main.async {
+                            self.photoLibraryChangePerformed(media: self.media, saved: saved, error: error)
+                        }
+                    }
+                }
+                
+                self.performWithCheckingPhotoLibraryAuthorization(performBlock: saveVideoToPhotos)
+                
+            }
+        case .none:
+            break
+        }
     }
     
     @IBAction func shareButtonTapped(_ sender: UIButton) {
@@ -136,6 +159,36 @@ extension PhotoEditorViewController {
     @objc func image(_ image: UIImage, withPotentialError error: NSErrorPointer, contextInfo: UnsafeRawPointer) {
         let alert = UIAlertController(title: "Image Saved", message: "Image successfully saved to Photos library", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func performWithCheckingPhotoLibraryAuthorization(performBlock: @escaping (() -> Void)) {
+        // Ensure permission to access Photo Library
+        if PHPhotoLibrary.authorizationStatus() != .authorized {
+            PHPhotoLibrary.requestAuthorization { status in
+                if status == .authorized {
+                    performBlock()
+                }
+            }
+        } else {
+            performBlock()
+        }
+    }
+    
+    private func photoLibraryChangePerformed(media: Media, saved: Bool, error: Error?) {
+        let success = saved && (error == nil)
+        let title = success ? "Success" : "Error"
+        let mediaString: String
+        switch media {
+        case .photo(_):
+            mediaString = "Photo"
+        case .video(_):
+            mediaString = "Video"
+        }
+        let message = success ? "\(mediaString) saved" : "Failed to save \(mediaString)"
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
