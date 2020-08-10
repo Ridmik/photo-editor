@@ -143,11 +143,11 @@ extension PhotoEditorViewController {
             photoEditorDelegate?.doneEditing(image: img)
             self.dismiss(animated: true, completion: nil)
         case .video(_):
-            exportAsVideo { url in
+            exportAsVideo { [weak self] url in
                 if let url = url {
-                    self.photoEditorDelegate?.doneEditingVideo(url: url)
+                    self?.photoEditorDelegate?.doneEditingVideo(url: url)
                 }
-                self.dismiss(animated: true, completion: nil)
+                self?.dismiss(animated: true, completion: nil)
             }
         case .none:
             break
