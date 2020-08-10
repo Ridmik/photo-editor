@@ -68,7 +68,7 @@ extension PhotoEditorViewController {
     }
     
     @IBAction func volumeButtonTapped(_ sender: UIButton) {
-        
+        isAudioMuted.toggle()
     }
 
     @IBAction func textButtonTapped(_ sender: Any) {

@@ -77,6 +77,12 @@ public final class PhotoEditorViewController: UIViewController {
     var isTyping: Bool = false
     /// Use this property for hiding contols for image or video editing by default without explicit setting from outside unlike `hiddenControls` property
     var defaultHiddenControls: [Control] = []
+    var isAudioMuted = false {
+        didSet {
+            queuePlayer.isMuted = isAudioMuted
+            volumeButton.isSelected = isAudioMuted
+        }
+    }
     
     private let queuePlayer = AVQueuePlayer()
     private var playerLooper: AVPlayerLooper?
