@@ -181,8 +181,22 @@ extension PhotoEditorViewController {
         // Ensure permission to access Photo Library
         if PHPhotoLibrary.authorizationStatus() != .authorized {
             PHPhotoLibrary.requestAuthorization { status in
-                if status == .authorized {
+                switch status {
+                case .authorized:
                     performBlock()
+                default:
+                    DispatchQueue.main.async {
+                        // show an alert that user needs to give permission for photo access
+                        let alert = UIAlertController(title: "Photos access needed.", message: "To continue to save to photos, you need to allow read & write access. Continue?", preferredStyle: .alert)
+                        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                        let settingsAction = UIAlertAction(title: "Settings", style: .default) { _ in
+                            guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
+                            UIApplication.shared.open(settingsURL)
+                        }
+                        alert.addAction(cancelAction)
+                        alert.addAction(settingsAction)
+                        self.present(alert, animated: true)
+                    }
                 }
             }
         } else {
