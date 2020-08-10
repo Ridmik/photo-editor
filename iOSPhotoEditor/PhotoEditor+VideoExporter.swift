@@ -29,7 +29,8 @@ extension PhotoEditorViewController {
                 let timeRange = CMTimeRange(start: .zero, duration: asset.duration)
                 try compositionTrack.insertTimeRange(timeRange, of: assetTrack, at: .zero)
                 
-                if let audioAssetTrack = asset.tracks(withMediaType: .audio).first,
+                // if audio isn't muted in the editor, add audio track from the asset
+                if !isAudioMuted, let audioAssetTrack = asset.tracks(withMediaType: .audio).first,
                     let compositionAudioTrack = mixComposition.addMutableTrack(withMediaType: .audio, preferredTrackID: kCMPersistentTrackID_Invalid) {
                     try compositionAudioTrack.insertTimeRange(timeRange, of: audioAssetTrack, at: .zero)
                 }
