@@ -13,9 +13,11 @@ import Photos
 // MARK: - Control
 public enum Control {
     case crop
+    case trim
     case sticker
     case draw
     case marker
+    case volume
     case text
     case save
     case share
@@ -40,6 +42,10 @@ extension PhotoEditorViewController {
             present(navController, animated: true, completion: nil)
         }
     }
+    
+    @IBAction func trimButtonTapped(_ sender: UIButton) {
+        
+    }
 
     @IBAction func stickersButtonTapped(_ sender: Any) {
         addStickersViewController()
@@ -59,6 +65,10 @@ extension PhotoEditorViewController {
         canvasImageView.isUserInteractionEnabled = false
         doneButton.isHidden = false
         hideToolbar(hide: true)
+    }
+    
+    @IBAction func volumeButtonTapped(_ sender: UIButton) {
+        
     }
 
     @IBAction func textButtonTapped(_ sender: Any) {
@@ -242,6 +252,18 @@ extension PhotoEditorViewController {
                     circularView.isHidden = true
                 } else {
                     textButton.isHidden = true
+                }
+            case .trim:
+                if let circularView = trimButton.superview as? CircularView {
+                    circularView.isHidden = true
+                } else {
+                    trimButton.isHidden = true
+                }
+            case .volume:
+                if let circularView = volumeButton.superview as? CircularView {
+                    circularView.isHidden = true
+                } else {
+                    volumeButton.isHidden = true
                 }
             }
         }

@@ -60,7 +60,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VyG-9S-xJs">
-                                        <rect key="frame" x="132" y="15" width="270" height="30"/>
+                                        <rect key="frame" x="52" y="15" width="350" height="30"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQd-zv-KLb" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -134,8 +134,32 @@
                                                     <constraint firstItem="xDK-JG-luZ" firstAttribute="top" secondItem="bGJ-ge-Qm0" secondAttribute="top" id="vCv-BO-gpB"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OeP-3h-MnI" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8JX-uU-aKH" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
                                                 <rect key="frame" x="120" y="0.0" width="30" height="30"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEl-cS-o5u">
+                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                        <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
+                                                        <size key="titleShadowOffset" width="1" height="0.0"/>
+                                                        <state key="normal" title="">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.1532266695" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="volumeButtonTapped:" destination="H7S-yr-kf7" eventType="touchUpInside" id="7Cz-Gt-tmZ"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.30219927229999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="KEl-cS-o5u" secondAttribute="trailing" id="Fuu-EI-udx"/>
+                                                    <constraint firstItem="KEl-cS-o5u" firstAttribute="top" secondItem="8JX-uU-aKH" secondAttribute="top" id="fVh-GS-0qi"/>
+                                                    <constraint firstItem="KEl-cS-o5u" firstAttribute="leading" secondItem="8JX-uU-aKH" secondAttribute="leading" id="qiw-75-jci"/>
+                                                    <constraint firstAttribute="bottom" secondItem="KEl-cS-o5u" secondAttribute="bottom" id="tMD-yU-NH3"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OeP-3h-MnI" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
+                                                <rect key="frame" x="160" y="0.0" width="30" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19b-9t-eLi">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -158,7 +182,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="raZ-S6-lYm" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
-                                                <rect key="frame" x="160" y="0.0" width="30" height="30"/>
+                                                <rect key="frame" x="200" y="0.0" width="30" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aGD-ca-jLQ">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -182,7 +206,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ceq-xu-VmM" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
-                                                <rect key="frame" x="200" y="0.0" width="30" height="30"/>
+                                                <rect key="frame" x="240" y="0.0" width="30" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Zl-58-c2z">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -205,8 +229,32 @@
                                                     <constraint firstItem="7Zl-58-c2z" firstAttribute="leading" secondItem="ceq-xu-VmM" secondAttribute="leading" id="jvR-iH-21j"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3GL-s4-AHw" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
+                                                <rect key="frame" x="280" y="0.0" width="30" height="30"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvJ-e2-wYH">
+                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                        <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
+                                                        <size key="titleShadowOffset" width="1" height="0.0"/>
+                                                        <state key="normal" title="">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.1532266695" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="trimButtonTapped:" destination="H7S-yr-kf7" eventType="touchUpInside" id="7Sg-an-fLL"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.30219927229999999" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="mvJ-e2-wYH" firstAttribute="leading" secondItem="3GL-s4-AHw" secondAttribute="leading" id="67w-DW-NB6"/>
+                                                    <constraint firstItem="mvJ-e2-wYH" firstAttribute="top" secondItem="3GL-s4-AHw" secondAttribute="top" id="Mvt-Jo-c8a"/>
+                                                    <constraint firstAttribute="trailing" secondItem="mvJ-e2-wYH" secondAttribute="trailing" id="QqC-dz-GCT"/>
+                                                    <constraint firstAttribute="bottom" secondItem="mvJ-e2-wYH" secondAttribute="bottom" id="S4L-Jy-eFR"/>
+                                                </constraints>
+                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f0O-DQ-Raj" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
-                                                <rect key="frame" x="240" y="0.0" width="30" height="30"/>
+                                                <rect key="frame" x="320" y="0.0" width="30" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fwe-s4-2Pl">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -464,7 +512,9 @@
                         <outlet property="textButton" destination="xDK-JG-luZ" id="kYf-4O-fZh"/>
                         <outlet property="topGradient" destination="eR9-Dj-3Es" id="Hfz-tJ-SFE"/>
                         <outlet property="topToolbar" destination="JlT-KT-Bym" id="H8Y-71-r67"/>
+                        <outlet property="trimButton" destination="mvJ-e2-wYH" id="Ykm-2o-9Ce"/>
                         <outlet property="videoPlayerView" destination="wN2-TL-kX0" id="OPi-mP-leq"/>
+                        <outlet property="volumeButton" destination="KEl-cS-o5u" id="lhz-kT-FoR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O3Q-w7-ZRR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
