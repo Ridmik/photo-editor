@@ -203,7 +203,7 @@ extension PhotoEditorViewController {
     }
     
     func hideControls() {
-        for control in hiddenControls {
+        for control in (hiddenControls + defaultHiddenControls) {
             switch control {
             case .clear:
                 if let circularView = clearButton.superview as? CircularView {

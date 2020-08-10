@@ -75,6 +75,8 @@ public final class PhotoEditorViewController: UIViewController {
     var activeTextView: UITextView?
     var imageViewToPan: UIImageView?
     var isTyping: Bool = false
+    /// Use this property for hiding contols for image or video editing by default without explicit setting from outside unlike `hiddenControls` property
+    var defaultHiddenControls: [Control] = []
     
     private let queuePlayer = AVQueuePlayer()
     private var playerLooper: AVPlayerLooper?
@@ -86,12 +88,14 @@ public final class PhotoEditorViewController: UIViewController {
     public static func makeForImage(_ image: UIImage) -> PhotoEditorViewController {
         let editor = UIStoryboard(name: "Editor", bundle: Bundle(for: self)).instantiateInitialViewController() as! PhotoEditorViewController
         editor.media = .photo(image)
+        editor.defaultHiddenControls = [.trim, .volume]
         return editor
     }
     
     public static func makeForVideo(_ url: URL) -> PhotoEditorViewController {
         let editor = UIStoryboard(name: "Editor", bundle: Bundle(for: self)).instantiateInitialViewController() as! PhotoEditorViewController
         editor.media = .video(url)
+        editor.defaultHiddenControls = [.crop, .marker]
         return editor
     }
     
