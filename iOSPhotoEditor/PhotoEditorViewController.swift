@@ -19,7 +19,7 @@ public final class PhotoEditorViewController: UIViewController {
     //To hold the drawings and stickers
     @IBOutlet weak var canvasImageView: UIImageView!
     @IBOutlet weak var videoPlayerView: VideoPlayer!
-    @IBOutlet weak var trimmerView: UIView!
+    @IBOutlet weak var trimmerView: TrimmerView!
     
     @IBOutlet weak var topToolbar: UIView!
     @IBOutlet weak var bottomToolbar: UIView!

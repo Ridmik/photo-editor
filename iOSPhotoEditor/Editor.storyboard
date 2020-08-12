@@ -52,7 +52,7 @@
                                     <constraint firstItem="Iaw-ys-0TB" firstAttribute="centerX" secondItem="oPX-ed-tNw" secondAttribute="centerX" id="uOF-Q8-Nza"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7jj-Fh-bKe">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7jj-Fh-bKe" customClass="TrimmerView" customModule="iOSPhotoEditor" customModuleProvider="target">
                                 <rect key="frame" x="20" y="772" width="374" height="70"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>

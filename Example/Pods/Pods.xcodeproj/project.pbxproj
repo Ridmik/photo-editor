@@ -38,6 +38,14 @@
 		AD0B94BF66B5161D68007030B45757FA /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2D71A20ED9F3BD33552CC4508D1803 /* CropViewController.swift */; };
 		AF5424B824E02ADD00DA5B9D /* UIImageView+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5424B724E02ADD00DA5B9D /* UIImageView+Image.swift */; };
 		AF5B5B5C24D2075B00168FF0 /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5B5B5B24D2075B00168FF0 /* CircularView.swift */; };
+		AF7B07E524E46EF200878BA5 /* AssetVideoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7B07DB24E46EF200878BA5 /* AssetVideoScrollView.swift */; };
+		AF7B07E624E46EF200878BA5 /* AVAssetTimeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7B07DC24E46EF200878BA5 /* AVAssetTimeSelector.swift */; };
+		AF7B07E724E46EF200878BA5 /* ThumbSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7B07DD24E46EF200878BA5 /* ThumbSelectorView.swift */; };
+		AF7B07E824E46EF200878BA5 /* VideoCropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7B07DF24E46EF200878BA5 /* VideoCropView.swift */; };
+		AF7B07E924E46EF200878BA5 /* VideoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7B07E024E46EF200878BA5 /* VideoScrollView.swift */; };
+		AF7B07EA24E46EF200878BA5 /* CropMaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7B07E124E46EF200878BA5 /* CropMaskView.swift */; };
+		AF7B07EB24E46EF200878BA5 /* HandlerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7B07E324E46EF200878BA5 /* HandlerView.swift */; };
+		AF7B07EC24E46EF200878BA5 /* PryntTrimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7B07E424E46EF200878BA5 /* PryntTrimmerView.swift */; };
 		AFAF292B24DECB5000D6FEE1 /* PhotoEditor+VideoExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAF292A24DECB5000D6FEE1 /* PhotoEditor+VideoExporter.swift */; };
 		AFEE805D24DBD2AB0038FF02 /* Editor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFEE805C24DBD2AB0038FF02 /* Editor.storyboard */; };
 		AFEE805F24DDDA500038FF02 /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEE805E24DDDA500038FF02 /* VideoPlayer.swift */; };
@@ -108,6 +116,14 @@
 		ACE663A8B720C5083D9CF0D0B1DCC84B /* ColorCollectionViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = ColorCollectionViewCell.xib; path = iOSPhotoEditor/ColorCollectionViewCell.xib; sourceTree = "<group>"; };
 		AF5424B724E02ADD00DA5B9D /* UIImageView+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIImageView+Image.swift"; path = "iOSPhotoEditor/UIImageView+Image.swift"; sourceTree = "<group>"; };
 		AF5B5B5B24D2075B00168FF0 /* CircularView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircularView.swift; path = iOSPhotoEditor/CircularView.swift; sourceTree = "<group>"; };
+		AF7B07DB24E46EF200878BA5 /* AssetVideoScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetVideoScrollView.swift; sourceTree = "<group>"; };
+		AF7B07DC24E46EF200878BA5 /* AVAssetTimeSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAssetTimeSelector.swift; sourceTree = "<group>"; };
+		AF7B07DD24E46EF200878BA5 /* ThumbSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbSelectorView.swift; sourceTree = "<group>"; };
+		AF7B07DF24E46EF200878BA5 /* VideoCropView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCropView.swift; sourceTree = "<group>"; };
+		AF7B07E024E46EF200878BA5 /* VideoScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoScrollView.swift; sourceTree = "<group>"; };
+		AF7B07E124E46EF200878BA5 /* CropMaskView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CropMaskView.swift; sourceTree = "<group>"; };
+		AF7B07E324E46EF200878BA5 /* HandlerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandlerView.swift; sourceTree = "<group>"; };
+		AF7B07E424E46EF200878BA5 /* PryntTrimmerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PryntTrimmerView.swift; sourceTree = "<group>"; };
 		AFAF292A24DECB5000D6FEE1 /* PhotoEditor+VideoExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PhotoEditor+VideoExporter.swift"; path = "iOSPhotoEditor/PhotoEditor+VideoExporter.swift"; sourceTree = "<group>"; };
 		AFECBC24E09D0D25F822C27BD944AFD4 /* Pods-Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Example-frameworks.sh"; sourceTree = "<group>"; };
 		AFEE805C24DBD2AB0038FF02 /* Editor.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Editor.storyboard; path = iOSPhotoEditor/Editor.storyboard; sourceTree = "<group>"; };
@@ -167,6 +183,7 @@
 		140932B18EC32D40E27FFA7E06C62380 /* iOSPhotoEditor */ = {
 			isa = PBXGroup;
 			children = (
+				AF7B07D924E46EF200878BA5 /* PryntTrimmerView */,
 				25E801AC8882FCD75951CC6E7ECC94E6 /* ColorCollectionViewCell.swift */,
 				49687ED7B6DC2DA33A3DD3E3798657DC /* ColorsCollectionViewDelegate.swift */,
 				FD866D4665FF9F572AD88180601407F6 /* CropRectView.swift */,
@@ -253,6 +270,46 @@
 				68D7DCB0512A3F7E8DD2D35D7FE22E33 /* StickersViewController.xib */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		AF7B07D924E46EF200878BA5 /* PryntTrimmerView */ = {
+			isa = PBXGroup;
+			children = (
+				AF7B07DA24E46EF200878BA5 /* Parents */,
+				AF7B07DD24E46EF200878BA5 /* ThumbSelectorView.swift */,
+				AF7B07DE24E46EF200878BA5 /* Cropper */,
+				AF7B07E224E46EF200878BA5 /* Trimmer */,
+			);
+			name = PryntTrimmerView;
+			path = iOSPhotoEditor/PryntTrimmerView;
+			sourceTree = "<group>";
+		};
+		AF7B07DA24E46EF200878BA5 /* Parents */ = {
+			isa = PBXGroup;
+			children = (
+				AF7B07DB24E46EF200878BA5 /* AssetVideoScrollView.swift */,
+				AF7B07DC24E46EF200878BA5 /* AVAssetTimeSelector.swift */,
+			);
+			path = Parents;
+			sourceTree = "<group>";
+		};
+		AF7B07DE24E46EF200878BA5 /* Cropper */ = {
+			isa = PBXGroup;
+			children = (
+				AF7B07DF24E46EF200878BA5 /* VideoCropView.swift */,
+				AF7B07E024E46EF200878BA5 /* VideoScrollView.swift */,
+				AF7B07E124E46EF200878BA5 /* CropMaskView.swift */,
+			);
+			path = Cropper;
+			sourceTree = "<group>";
+		};
+		AF7B07E224E46EF200878BA5 /* Trimmer */ = {
+			isa = PBXGroup;
+			children = (
+				AF7B07E324E46EF200878BA5 /* HandlerView.swift */,
+				AF7B07E424E46EF200878BA5 /* PryntTrimmerView.swift */,
+			);
+			path = Trimmer;
 			sourceTree = "<group>";
 		};
 		B1B35616F2BDC1FFBAF5927BD365D10F /* Pod */ = {
@@ -419,12 +476,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF7B07EA24E46EF200878BA5 /* CropMaskView.swift in Sources */,
 				AFEE805F24DDDA500038FF02 /* VideoPlayer.swift in Sources */,
 				AF5B5B5C24D2075B00168FF0 /* CircularView.swift in Sources */,
 				D1F24684C70512232E6F3136AB8DEDD1 /* ColorCollectionViewCell.swift in Sources */,
 				929ACED27ECBB334AF60003B77268799 /* ColorsCollectionViewDelegate.swift in Sources */,
 				0FFDF3D5E48443D8A0AB37884C4D4518 /* CropRectView.swift in Sources */,
 				36148101296437E3737248F388FB689B /* CropView.swift in Sources */,
+				AF7B07E824E46EF200878BA5 /* VideoCropView.swift in Sources */,
+				AF7B07E924E46EF200878BA5 /* VideoScrollView.swift in Sources */,
 				AD0B94BF66B5161D68007030B45757FA /* CropViewController.swift in Sources */,
 				DC7B676301AB49BCF19148DB1A677834 /* EmojiCollectionViewCell.swift in Sources */,
 				072411FC4FFAEEC2E490EA613735B663 /* EmojisCollectionViewDelegate.swift in Sources */,
@@ -432,7 +492,9 @@
 				83CEE00293ACCE13C33B2708F99441E7 /* iOSPhotoEditor-dummy.m in Sources */,
 				7B115EBF95F4F9CAD151E8068FD4E116 /* PhotoEditor+Controls.swift in Sources */,
 				59EA57A68F9A1BA3B3CCBAD415A027E1 /* PhotoEditor+Crop.swift in Sources */,
+				AF7B07EB24E46EF200878BA5 /* HandlerView.swift in Sources */,
 				A5C2A3D6BC7FC6CAC2658B00C14C0AAF /* PhotoEditor+Drawing.swift in Sources */,
+				AF7B07E724E46EF200878BA5 /* ThumbSelectorView.swift in Sources */,
 				98FDFED680BB72922837C4383E58D5B3 /* PhotoEditor+Font.swift in Sources */,
 				87929A2F59DB5248F86A6C8879A1BBE0 /* PhotoEditor+Gestures.swift in Sources */,
 				BE813230C93635D7C86ED53D03176055 /* PhotoEditor+Keyboard.swift in Sources */,
@@ -446,7 +508,10 @@
 				D5B81398FC15F4B36FFBA87B4151E4EB /* StickerCollectionViewCell.swift in Sources */,
 				8D056B9C4D22B5F24DBAA025AAFACC3E /* StickersViewController.swift in Sources */,
 				2ADCBDC301B7FACAB3ECB8E64909D96E /* UIImage+Crop.swift in Sources */,
+				AF7B07E624E46EF200878BA5 /* AVAssetTimeSelector.swift in Sources */,
+				AF7B07E524E46EF200878BA5 /* AssetVideoScrollView.swift in Sources */,
 				C2AD8B55233BA0A62A4BA1862A0CA7FC /* UIImage+Size.swift in Sources */,
+				AF7B07EC24E46EF200878BA5 /* PryntTrimmerView.swift in Sources */,
 				BE6ED67FC981FB3C737D11D07AAFAF23 /* UIImageView+Alpha.swift in Sources */,
 				5746384BE18C73F800082B9ACDE25545 /* UIView+Image.swift in Sources */,
 			);
