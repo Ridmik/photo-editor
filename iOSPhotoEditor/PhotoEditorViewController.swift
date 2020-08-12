@@ -87,6 +87,7 @@ public final class PhotoEditorViewController: UIViewController {
     
     private let queuePlayer = AVQueuePlayer()
     private var playerLooper: AVPlayerLooper?
+    private var playbackTimer: Timer?
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -122,6 +123,7 @@ public final class PhotoEditorViewController: UIViewController {
             let item = AVPlayerItem(asset: asset)
             playerLooper = AVPlayerLooper(player: queuePlayer, templateItem: item)
             videoPlayerView.player = queuePlayer
+            trimmerView.delegate = self
         }
         
         deleteView.layer.cornerRadius = deleteView.bounds.height / 2
@@ -158,6 +160,7 @@ public final class PhotoEditorViewController: UIViewController {
         super.viewDidDisappear(animated)
         if case .video(_) = self.media {
             queuePlayer.pause()
+            stopPlaybackPeriodicObserver()
         }
     }
     
@@ -193,6 +196,31 @@ public final class PhotoEditorViewController: UIViewController {
         bottomToolbar.isHidden = hide
         bottomGradient.isHidden = hide
     }
+    
+    private func startPlaybackPeriodicObserver() {
+        // first stop the timer if previously running
+        stopPlaybackPeriodicObserver()
+        
+        playbackTimer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            
+            guard let startTime = self.trimmerView.startTime, let endTime = self.trimmerView.endTime else { return }
+            
+            let playbackTime = self.queuePlayer.currentTime()
+            self.trimmerView.seek(to: playbackTime)
+            
+            if playbackTime >= endTime {
+                self.queuePlayer.seek(to: startTime, toleranceBefore: .zero, toleranceAfter: .zero)
+                self.trimmerView.seek(to: startTime)
+            }
+        }
+    }
+    
+    private func stopPlaybackPeriodicObserver() {
+        playbackTimer?.invalidate()
+        playbackTimer = nil
+    }
+    
 }
 
 extension PhotoEditorViewController: ColorDelegate {
@@ -204,6 +232,22 @@ extension PhotoEditorViewController: ColorDelegate {
             textColor = color
         }
     }
+}
+
+extension PhotoEditorViewController: TrimmerViewDelegate {
+    
+    public func didChangePositionBar(_ playerTime: CMTime) {
+        stopPlaybackPeriodicObserver()
+        queuePlayer.pause()
+        queuePlayer.seek(to: playerTime, toleranceBefore: .zero, toleranceAfter: .zero)
+    }
+    
+    public func positionBarStoppedMoving(_ playerTime: CMTime) {
+        queuePlayer.seek(to: playerTime, toleranceBefore: .zero, toleranceAfter: .zero)
+        queuePlayer.play()
+        startPlaybackPeriodicObserver()
+    }
+    
 }
 
 extension PhotoEditorViewController {
