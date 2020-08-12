@@ -52,6 +52,13 @@
                                     <constraint firstItem="Iaw-ys-0TB" firstAttribute="centerX" secondItem="oPX-ed-tNw" secondAttribute="centerX" id="uOF-Q8-Nza"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7jj-Fh-bKe">
+                                <rect key="frame" x="20" y="772" width="374" height="70"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="suO-uo-jFD"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eR9-Dj-3Es" userLabel="Top Gradient View" customClass="GradientView" customModule="iOSPhotoEditor" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="104"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -468,6 +475,8 @@
                             <constraint firstItem="h7I-tm-jmb" firstAttribute="centerY" secondItem="aSK-7g-yya" secondAttribute="centerY" id="4EL-cd-CrZ"/>
                             <constraint firstItem="wN2-TL-kX0" firstAttribute="leading" secondItem="aSK-7g-yya" secondAttribute="leading" id="5Qk-9B-1zP"/>
                             <constraint firstAttribute="trailing" secondItem="hGV-eN-jgj" secondAttribute="trailing" constant="12" id="7yB-MH-Fl1"/>
+                            <constraint firstItem="7jj-Fh-bKe" firstAttribute="leading" secondItem="k7E-He-fig" secondAttribute="leading" constant="20" id="8WV-UN-C7N"/>
+                            <constraint firstItem="k7E-He-fig" firstAttribute="bottom" secondItem="7jj-Fh-bKe" secondAttribute="bottom" constant="20" id="Abt-E7-lpS"/>
                             <constraint firstItem="eR9-Dj-3Es" firstAttribute="top" secondItem="aSK-7g-yya" secondAttribute="top" id="Axx-Y7-Wmh"/>
                             <constraint firstItem="JlT-KT-Bym" firstAttribute="leading" secondItem="aSK-7g-yya" secondAttribute="leading" id="JZX-9y-bbv"/>
                             <constraint firstAttribute="trailing" secondItem="MiU-ky-TGE" secondAttribute="trailing" id="LAf-tD-DNN"/>
@@ -481,6 +490,7 @@
                             <constraint firstAttribute="bottom" secondItem="wN2-TL-kX0" secondAttribute="bottom" id="eIr-0m-5LS"/>
                             <constraint firstItem="MiU-ky-TGE" firstAttribute="leading" secondItem="aSK-7g-yya" secondAttribute="leading" id="gBE-qO-3hK"/>
                             <constraint firstItem="k7E-He-fig" firstAttribute="bottom" secondItem="MiU-ky-TGE" secondAttribute="bottom" id="gfw-NL-Kds"/>
+                            <constraint firstItem="k7E-He-fig" firstAttribute="trailing" secondItem="7jj-Fh-bKe" secondAttribute="trailing" constant="20" id="iAf-Fx-Z59"/>
                             <constraint firstItem="ze0-hP-vvd" firstAttribute="leading" secondItem="aSK-7g-yya" secondAttribute="leading" id="iii-TY-DEE"/>
                             <constraint firstItem="eR9-Dj-3Es" firstAttribute="leading" secondItem="aSK-7g-yya" secondAttribute="leading" id="lxD-Ey-aGC"/>
                             <constraint firstAttribute="trailing" secondItem="h7I-tm-jmb" secondAttribute="trailing" id="ogY-Ek-3eN"/>
@@ -518,6 +528,7 @@
                         <outlet property="topGradient" destination="eR9-Dj-3Es" id="Hfz-tJ-SFE"/>
                         <outlet property="topToolbar" destination="JlT-KT-Bym" id="H8Y-71-r67"/>
                         <outlet property="trimButton" destination="mvJ-e2-wYH" id="Ykm-2o-9Ce"/>
+                        <outlet property="trimmerView" destination="7jj-Fh-bKe" id="ZOk-U0-Xsi"/>
                         <outlet property="videoPlayerView" destination="wN2-TL-kX0" id="OPi-mP-leq"/>
                         <outlet property="volumeButton" destination="KEl-cS-o5u" id="lhz-kT-FoR"/>
                     </connections>

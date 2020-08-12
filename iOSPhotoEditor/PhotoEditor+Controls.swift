@@ -44,7 +44,9 @@ extension PhotoEditorViewController {
     }
     
     @IBAction func trimButtonTapped(_ sender: UIButton) {
-        
+        trimmerView.isHidden = false
+        doneButton.isHidden = false
+        hideToolbar(hide: true)
     }
 
     @IBAction func stickersButtonTapped(_ sender: Any) {
@@ -101,6 +103,7 @@ extension PhotoEditorViewController {
         isDrawing = false
         // reset drawing color
         drawColor = drawColorInitial
+        trimmerView.isHidden = true
     }
     
     //MARK: Bottom Toolbar
