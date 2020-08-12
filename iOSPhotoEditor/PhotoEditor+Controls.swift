@@ -44,9 +44,19 @@ extension PhotoEditorViewController {
     }
     
     @IBAction func trimButtonTapped(_ sender: UIButton) {
-        trimmerView.isHidden = false
-        doneButton.isHidden = false
-        hideToolbar(hide: true)
+        if case .video(let url) = self.media {
+            trimmerView.isHidden = false
+            doneButton.isHidden = false
+            hideToolbar(hide: true)
+            let asset = AVAsset(url: url)
+            /* this is a nifty trick of setting trimmer view max duration to
+             the asset duration by subtracting a negligible millisecond so that
+             the queue player playback finish doesn't force the preview player to be played from
+             the beginning of the video asset instead of trimmer start time
+            */
+            trimmerView.maxDuration = asset.duration.seconds - 0.05
+            trimmerView.asset = asset
+        }
     }
 
     @IBAction func stickersButtonTapped(_ sender: Any) {
