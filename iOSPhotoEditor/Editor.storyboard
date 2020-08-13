@@ -52,11 +52,40 @@
                                     <constraint firstItem="Iaw-ys-0TB" firstAttribute="centerX" secondItem="oPX-ed-tNw" secondAttribute="centerX" id="uOF-Q8-Nza"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7jj-Fh-bKe" customClass="TrimmerView" customModule="iOSPhotoEditor" customModuleProvider="target">
-                                <rect key="frame" x="20" y="772" width="374" height="70"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dht-gS-cLu">
+                                <rect key="frame" x="20" y="720.5" width="374" height="121.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="G8b-Yg-Ltq">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="121.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trim video duration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HbX-cn-F85">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="14.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHE-8q-80A">
+                                                <rect key="frame" x="0.0" y="24.5" width="374" height="17"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7jj-Fh-bKe" customClass="TrimmerView" customModule="iOSPhotoEditor" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="51.5" width="374" height="70"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="70" id="suO-uo-jFD"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="suO-uo-jFD"/>
+                                    <constraint firstAttribute="trailing" secondItem="G8b-Yg-Ltq" secondAttribute="trailing" id="8yQ-Dg-lST"/>
+                                    <constraint firstItem="G8b-Yg-Ltq" firstAttribute="leading" secondItem="Dht-gS-cLu" secondAttribute="leading" id="9Dp-Rd-i0Y"/>
+                                    <constraint firstItem="G8b-Yg-Ltq" firstAttribute="top" secondItem="Dht-gS-cLu" secondAttribute="top" id="AFx-2q-Lgv"/>
+                                    <constraint firstAttribute="bottom" secondItem="G8b-Yg-Ltq" secondAttribute="bottom" id="HeE-UU-EY8"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eR9-Dj-3Es" userLabel="Top Gradient View" customClass="GradientView" customModule="iOSPhotoEditor" customModuleProvider="target">
@@ -426,7 +455,7 @@
                                 <rect key="frame" x="182" y="800" width="50" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcT-LA-qum">
-                                        <rect key="frame" x="9.5" y="10" width="31" height="30"/>
+                                        <rect key="frame" x="7.5" y="7.5" width="35.5" height="35"/>
                                         <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="30"/>
                                         <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -472,12 +501,13 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="XSs-5t-mWL" firstAttribute="leading" secondItem="aSK-7g-yya" secondAttribute="leading" id="21F-Mj-1y6"/>
+                            <constraint firstItem="Dht-gS-cLu" firstAttribute="leading" secondItem="k7E-He-fig" secondAttribute="leading" constant="20" id="3Q1-WR-NCy"/>
                             <constraint firstItem="h7I-tm-jmb" firstAttribute="centerY" secondItem="aSK-7g-yya" secondAttribute="centerY" id="4EL-cd-CrZ"/>
                             <constraint firstItem="wN2-TL-kX0" firstAttribute="leading" secondItem="aSK-7g-yya" secondAttribute="leading" id="5Qk-9B-1zP"/>
                             <constraint firstAttribute="trailing" secondItem="hGV-eN-jgj" secondAttribute="trailing" constant="12" id="7yB-MH-Fl1"/>
-                            <constraint firstItem="7jj-Fh-bKe" firstAttribute="leading" secondItem="k7E-He-fig" secondAttribute="leading" constant="20" id="8WV-UN-C7N"/>
-                            <constraint firstItem="k7E-He-fig" firstAttribute="bottom" secondItem="7jj-Fh-bKe" secondAttribute="bottom" constant="20" id="Abt-E7-lpS"/>
                             <constraint firstItem="eR9-Dj-3Es" firstAttribute="top" secondItem="aSK-7g-yya" secondAttribute="top" id="Axx-Y7-Wmh"/>
+                            <constraint firstItem="k7E-He-fig" firstAttribute="trailing" secondItem="Dht-gS-cLu" secondAttribute="trailing" constant="20" id="E2W-Qd-Jcz"/>
+                            <constraint firstItem="k7E-He-fig" firstAttribute="bottom" secondItem="Dht-gS-cLu" secondAttribute="bottom" constant="20" id="FMO-eZ-KeR"/>
                             <constraint firstItem="JlT-KT-Bym" firstAttribute="leading" secondItem="aSK-7g-yya" secondAttribute="leading" id="JZX-9y-bbv"/>
                             <constraint firstAttribute="trailing" secondItem="MiU-ky-TGE" secondAttribute="trailing" id="LAf-tD-DNN"/>
                             <constraint firstAttribute="trailing" secondItem="eR9-Dj-3Es" secondAttribute="trailing" id="LyX-xr-sBw"/>
@@ -490,7 +520,6 @@
                             <constraint firstAttribute="bottom" secondItem="wN2-TL-kX0" secondAttribute="bottom" id="eIr-0m-5LS"/>
                             <constraint firstItem="MiU-ky-TGE" firstAttribute="leading" secondItem="aSK-7g-yya" secondAttribute="leading" id="gBE-qO-3hK"/>
                             <constraint firstItem="k7E-He-fig" firstAttribute="bottom" secondItem="MiU-ky-TGE" secondAttribute="bottom" id="gfw-NL-Kds"/>
-                            <constraint firstItem="k7E-He-fig" firstAttribute="trailing" secondItem="7jj-Fh-bKe" secondAttribute="trailing" constant="20" id="iAf-Fx-Z59"/>
                             <constraint firstItem="ze0-hP-vvd" firstAttribute="leading" secondItem="aSK-7g-yya" secondAttribute="leading" id="iii-TY-DEE"/>
                             <constraint firstItem="eR9-Dj-3Es" firstAttribute="leading" secondItem="aSK-7g-yya" secondAttribute="leading" id="lxD-Ey-aGC"/>
                             <constraint firstAttribute="trailing" secondItem="h7I-tm-jmb" secondAttribute="trailing" id="ogY-Ek-3eN"/>
@@ -528,6 +557,8 @@
                         <outlet property="topGradient" destination="eR9-Dj-3Es" id="Hfz-tJ-SFE"/>
                         <outlet property="topToolbar" destination="JlT-KT-Bym" id="H8Y-71-r67"/>
                         <outlet property="trimButton" destination="mvJ-e2-wYH" id="Ykm-2o-9Ce"/>
+                        <outlet property="trimDurationLabel" destination="NHE-8q-80A" id="s30-2s-irp"/>
+                        <outlet property="trimmerContainerView" destination="Dht-gS-cLu" id="gqR-na-il6"/>
                         <outlet property="trimmerView" destination="7jj-Fh-bKe" id="ZOk-U0-Xsi"/>
                         <outlet property="videoPlayerView" destination="wN2-TL-kX0" id="OPi-mP-leq"/>
                         <outlet property="volumeButton" destination="KEl-cS-o5u" id="lhz-kT-FoR"/>
@@ -535,7 +566,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O3Q-w7-ZRR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32" y="95"/>
+            <point key="canvasLocation" x="31.884057971014496" y="94.419642857142847"/>
         </scene>
     </scenes>
 </document>

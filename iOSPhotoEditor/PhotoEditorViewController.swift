@@ -19,6 +19,8 @@ public final class PhotoEditorViewController: UIViewController {
     //To hold the drawings and stickers
     @IBOutlet weak var canvasImageView: UIImageView!
     @IBOutlet weak var videoPlayerView: VideoPlayer!
+    @IBOutlet weak var trimmerContainerView: UIView!
+    @IBOutlet weak var trimDurationLabel: UILabel!
     @IBOutlet weak var trimmerView: TrimmerView!
     
     @IBOutlet weak var topToolbar: UIView!
@@ -221,6 +223,15 @@ public final class PhotoEditorViewController: UIViewController {
         playbackTimer = nil
     }
     
+    var trimmingDuration: String {
+        let start = trimmerView.startTime ?? .zero
+        let end = trimmerView.endTime ?? .zero
+        let duration = (end - start).seconds.rounded()
+        let integerDuration = Int(duration)
+        return "\(integerDuration) sec"
+    }
+    
+    
 }
 
 extension PhotoEditorViewController: ColorDelegate {
@@ -240,6 +251,7 @@ extension PhotoEditorViewController: TrimmerViewDelegate {
         stopPlaybackPeriodicObserver()
         queuePlayer.pause()
         queuePlayer.seek(to: playerTime, toleranceBefore: .zero, toleranceAfter: .zero)
+        trimDurationLabel.text = trimmingDuration
     }
     
     public func positionBarStoppedMoving(_ playerTime: CMTime) {

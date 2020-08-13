@@ -45,7 +45,7 @@ extension PhotoEditorViewController {
     
     @IBAction func trimButtonTapped(_ sender: UIButton) {
         if case .video(let url) = self.media {
-            trimmerView.isHidden = false
+            trimmerContainerView.isHidden = false
             doneButton.isHidden = false
             hideToolbar(hide: true)
             let asset = AVAsset(url: url)
@@ -56,6 +56,7 @@ extension PhotoEditorViewController {
             */
             trimmerView.maxDuration = asset.duration.seconds - 0.05
             trimmerView.asset = asset
+            trimDurationLabel.text = trimmingDuration
         }
     }
 
@@ -113,7 +114,7 @@ extension PhotoEditorViewController {
         isDrawing = false
         // reset drawing color
         drawColor = drawColorInitial
-        trimmerView.isHidden = true
+        trimmerContainerView.isHidden = true
     }
     
     //MARK: Bottom Toolbar
