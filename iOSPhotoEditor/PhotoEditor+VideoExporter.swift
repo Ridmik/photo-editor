@@ -26,7 +26,9 @@ extension PhotoEditorViewController {
             }
             
             do {
-                let timeRange = CMTimeRange(start: .zero, duration: asset.duration)
+                let startTime = trimmerView.startTime ?? .zero
+                let endTime = trimmerView.endTime ?? asset.duration
+                let timeRange = CMTimeRangeFromTimeToTime(start: startTime, end: endTime)
                 try compositionTrack.insertTimeRange(timeRange, of: assetTrack, at: .zero)
                 
                 // if audio isn't muted in the editor, add audio track from the asset
