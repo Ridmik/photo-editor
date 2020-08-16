@@ -137,8 +137,9 @@ extension PhotoEditorViewController {
             self.performWithCheckingPhotoLibraryAuthorization(performBlock: savePhotoToPhotos)
             
         case .video(_):
+            showLoader()
             exportAsVideo { [weak self] videoURL in
-                
+                self?.hideLoader()
                 guard let self = self, let videoURL = videoURL else { return }
                 let saveVideoToPhotos = {
                     let changes: (() -> Void) = { PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: videoURL) }
@@ -179,7 +180,9 @@ extension PhotoEditorViewController {
             photoEditorDelegate?.doneEditing(image: img)
             self.dismiss(animated: true, completion: nil)
         case .video(_):
+            showLoader()
             exportAsVideo { [weak self] url in
+                self?.hideLoader()
                 if let url = url {
                     self?.photoEditorDelegate?.doneEditingVideo(url: url)
                 }
@@ -300,6 +303,14 @@ extension PhotoEditorViewController {
                 }
             }
         }
+    }
+    
+    func showLoader() {
+        activityIndicatorContainerView.isHidden = false
+    }
+    
+    func hideLoader() {
+        activityIndicatorContainerView.isHidden = true
     }
     
 }

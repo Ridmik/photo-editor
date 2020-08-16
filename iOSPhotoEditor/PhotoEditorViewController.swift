@@ -34,6 +34,7 @@ public final class PhotoEditorViewController: UIViewController {
     @IBOutlet weak var colorsCollectionView: UICollectionView!
     @IBOutlet weak var colorPickerView: UIView!
     @IBOutlet weak var colorPickerViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var activityIndicatorContainerView: UIView!
     
     //Controls
     @IBOutlet weak var cropButton: UIButton!
