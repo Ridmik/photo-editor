@@ -24,6 +24,11 @@ public enum Control {
     case clear
 }
 
+public enum ContinueButtonStyle {
+    case icon
+    case imageWithText(UIImage, String)
+}
+
 extension PhotoEditorViewController {
 
      //MARK: Top Toolbar
@@ -302,6 +307,27 @@ extension PhotoEditorViewController {
                     volumeButton.isHidden = true
                 }
             }
+        }
+    }
+    
+    func setupContinueButton() {
+        switch continueButtonStyle {
+        case .imageWithText(let image, let text):
+            // hide the icon button
+            if let circularView = continueIconButton.superview as? CircularView {
+                circularView.isHidden = true
+            } else {
+                continueIconButton.isHidden = true
+            }
+            // setup custom button view
+            continueButtonImageView.image = image
+            continueButtonLabel.text = text
+            // add gesture
+            let tap = UITapGestureRecognizer(target: self, action: #selector(continueButtonPressed(_:)))
+            continueImageLabelButtonView.addGestureRecognizer(tap)
+        default:
+            // hide custom button view
+            continueImageLabelButtonView.isHidden = true
         }
     }
     

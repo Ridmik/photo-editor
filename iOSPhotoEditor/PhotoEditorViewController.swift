@@ -68,6 +68,7 @@ public final class PhotoEditorViewController: UIViewController {
     var media: Media!
     var colorsCollectionViewDelegate: ColorsCollectionViewDelegate!
     var stickersViewController: StickersViewController!
+    var continueButtonStyle: ContinueButtonStyle!
     
     var stickersVCIsVisible = false
     var drawColor: UIColor = UIColor.black
@@ -100,17 +101,19 @@ public final class PhotoEditorViewController: UIViewController {
         super.init(coder: coder)
     }
     
-    public static func makeForImage(_ image: UIImage) -> PhotoEditorViewController {
+    public static func makeForImage(_ image: UIImage, continueButtonStyle: ContinueButtonStyle = .icon) -> PhotoEditorViewController {
         let editor = UIStoryboard(name: "Editor", bundle: Bundle(for: self)).instantiateInitialViewController() as! PhotoEditorViewController
         editor.media = .photo(image)
         editor.defaultHiddenControls = [.trim, .volume]
+        editor.continueButtonStyle = continueButtonStyle
         return editor
     }
     
-    public static func makeForVideo(_ url: URL) -> PhotoEditorViewController {
+    public static func makeForVideo(_ url: URL, continueButtonStyle: ContinueButtonStyle = .icon) -> PhotoEditorViewController {
         let editor = UIStoryboard(name: "Editor", bundle: Bundle(for: self)).instantiateInitialViewController() as! PhotoEditorViewController
         editor.media = .video(url)
         editor.defaultHiddenControls = [.crop, .marker]
+        editor.continueButtonStyle = continueButtonStyle
         return editor
     }
     
@@ -154,6 +157,7 @@ public final class PhotoEditorViewController: UIViewController {
         configureCollectionView()
         stickersViewController = StickersViewController(nibName: "StickersViewController", bundle: Bundle(for: StickersViewController.self))
         hideControls()
+        setupContinueButton()
     }
     
     public override func viewDidAppear(_ animated: Bool) {
