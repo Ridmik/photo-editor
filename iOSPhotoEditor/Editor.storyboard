@@ -411,37 +411,76 @@
                                             <constraint firstAttribute="height" constant="30" id="X6w-QA-pDo"/>
                                         </constraints>
                                     </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3I1-LP-cEr" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
-                                        <rect key="frame" x="362" y="10" width="40" height="40"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GCQ-2O-3qt">
+                                        <rect key="frame" x="252" y="10" width="150" height="40"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="daV-HR-Ghl">
-                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
-                                                <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
-                                                <size key="titleShadowOffset" width="1" height="0.0"/>
-                                                <state key="normal" title="">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.1532266695" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="continueButtonPressed:" destination="H7S-yr-kf7" eventType="touchUpInside" id="lUk-UE-c6m"/>
-                                                </connections>
-                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IgE-L3-bE9" customClass="RoundedCornerView" customModule="iOSPhotoEditor" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="110" height="40"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RxY-um-Kdp">
+                                                        <rect key="frame" x="8" y="7" width="94" height="26"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1lK-oS-iwX" customClass="CircularImageView" customModule="iOSPhotoEditor" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="26" height="26"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="1lK-oS-iwX" secondAttribute="height" multiplier="1:1" id="eT6-AL-3Ag"/>
+                                                                    <constraint firstAttribute="width" constant="26" id="kHh-Hh-tcl"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Continue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOz-hW-foO">
+                                                                <rect key="frame" x="34" y="0.0" width="60" height="26"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.23921568630000001" green="0.74509803919999995" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="RxY-um-Kdp" firstAttribute="leading" secondItem="IgE-L3-bE9" secondAttribute="leading" constant="8" id="mAt-PP-W8U"/>
+                                                    <constraint firstAttribute="trailing" secondItem="RxY-um-Kdp" secondAttribute="trailing" constant="8" id="uR3-sb-sKE"/>
+                                                    <constraint firstItem="RxY-um-Kdp" firstAttribute="centerY" secondItem="IgE-L3-bE9" secondAttribute="centerY" id="wrv-qj-t4u"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3I1-LP-cEr" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
+                                                <rect key="frame" x="110" y="0.0" width="40" height="40"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="daV-HR-Ghl">
+                                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                        <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
+                                                        <size key="titleShadowOffset" width="1" height="0.0"/>
+                                                        <state key="normal" title="">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.1532266695" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="continueButtonPressed:" destination="H7S-yr-kf7" eventType="touchUpInside" id="lUk-UE-c6m"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.23921568630000001" green="0.74509803919999995" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="daV-HR-Ghl" secondAttribute="trailing" id="MqP-YL-bnr"/>
+                                                    <constraint firstAttribute="bottom" secondItem="daV-HR-Ghl" secondAttribute="bottom" id="Wp3-Zn-g35"/>
+                                                    <constraint firstItem="daV-HR-Ghl" firstAttribute="top" secondItem="3I1-LP-cEr" secondAttribute="top" id="cCn-2Z-bnR"/>
+                                                    <constraint firstAttribute="height" constant="40" id="jao-n8-kNG"/>
+                                                    <constraint firstAttribute="width" secondItem="3I1-LP-cEr" secondAttribute="height" multiplier="1:1" id="jfY-2A-17G"/>
+                                                    <constraint firstItem="daV-HR-Ghl" firstAttribute="leading" secondItem="3I1-LP-cEr" secondAttribute="leading" id="jzF-pH-q11"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.23921568630000001" green="0.74509803919999995" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="daV-HR-Ghl" secondAttribute="trailing" id="MqP-YL-bnr"/>
-                                            <constraint firstAttribute="bottom" secondItem="daV-HR-Ghl" secondAttribute="bottom" id="Wp3-Zn-g35"/>
-                                            <constraint firstItem="daV-HR-Ghl" firstAttribute="top" secondItem="3I1-LP-cEr" secondAttribute="top" id="cCn-2Z-bnR"/>
-                                            <constraint firstAttribute="height" constant="40" id="jao-n8-kNG"/>
-                                            <constraint firstAttribute="width" secondItem="3I1-LP-cEr" secondAttribute="height" multiplier="1:1" id="jfY-2A-17G"/>
-                                            <constraint firstItem="daV-HR-Ghl" firstAttribute="leading" secondItem="3I1-LP-cEr" secondAttribute="leading" id="jzF-pH-q11"/>
-                                        </constraints>
-                                    </view>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="3I1-LP-cEr" firstAttribute="centerY" secondItem="ze0-hP-vvd" secondAttribute="centerY" id="0pu-Jl-OsK"/>
-                                    <constraint firstAttribute="trailing" secondItem="3I1-LP-cEr" secondAttribute="trailing" constant="12" id="XMg-r1-xnt"/>
+                                    <constraint firstItem="GCQ-2O-3qt" firstAttribute="centerY" secondItem="ze0-hP-vvd" secondAttribute="centerY" id="5on-JP-YGT"/>
+                                    <constraint firstAttribute="trailing" secondItem="GCQ-2O-3qt" secondAttribute="trailing" constant="12" id="RWY-ky-SVd"/>
                                     <constraint firstAttribute="height" constant="60" id="eNv-KZ-QoK"/>
                                     <constraint firstItem="r9d-DB-uWX" firstAttribute="centerY" secondItem="ze0-hP-vvd" secondAttribute="centerY" id="i7F-ub-jxp"/>
                                     <constraint firstItem="r9d-DB-uWX" firstAttribute="leading" secondItem="ze0-hP-vvd" secondAttribute="leading" constant="12" id="ue3-so-kUT"/>
@@ -570,6 +609,10 @@
                         <outlet property="colorPickerView" destination="MiU-ky-TGE" id="zBN-e5-UAV"/>
                         <outlet property="colorPickerViewBottomConstraint" destination="gfw-NL-Kds" id="2OD-Ix-rrc"/>
                         <outlet property="colorsCollectionView" destination="tr4-2K-L0p" id="Bhv-bm-815"/>
+                        <outlet property="continueButtonImageView" destination="1lK-oS-iwX" id="Uev-6z-G8l"/>
+                        <outlet property="continueButtonLabel" destination="BOz-hW-foO" id="nQi-pT-1Aq"/>
+                        <outlet property="continueIconButton" destination="daV-HR-Ghl" id="C9K-Qs-ECa"/>
+                        <outlet property="continueImageLabelButtonView" destination="IgE-L3-bE9" id="kGl-jT-uIp"/>
                         <outlet property="cropButton" destination="Fwe-s4-2Pl" id="081-r2-F5s"/>
                         <outlet property="deleteView" destination="kas-2g-oaa" id="c7V-IS-dnv"/>
                         <outlet property="doneButton" destination="hGV-eN-jgj" id="NNe-NB-n07"/>

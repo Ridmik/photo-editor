@@ -47,6 +47,10 @@ public final class PhotoEditorViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var continueIconButton: UIButton!
+    @IBOutlet weak var continueImageLabelButtonView: RoundedCornerView!
+    @IBOutlet weak var continueButtonImageView: CircularImageView!
+    @IBOutlet weak var continueButtonLabel: UILabel!
     
     // MARK:- Public properties
     /// Array of Stickers `UIImage` that the user will choose from
