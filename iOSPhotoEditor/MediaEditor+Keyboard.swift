@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension PhotoEditorViewController {
+extension MediaEditorViewController {
     
     @objc func keyboardDidShow(notification: NSNotification) {
         if isTyping {

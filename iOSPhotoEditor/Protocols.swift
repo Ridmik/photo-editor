@@ -13,7 +13,7 @@ import UIKit
  - canceledEditing
  */
 
-public protocol PhotoEditorDelegate {
+public protocol MediaEditorDelegate {
     /**
      - Parameter image: edited Image
      */

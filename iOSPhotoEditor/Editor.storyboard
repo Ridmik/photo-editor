@@ -13,10 +13,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Photo Editor View Controller-->
+        <!--Media Editor View Controller-->
         <scene sceneID="SSc-wc-21h">
             <objects>
-                <viewController id="H7S-yr-kf7" customClass="PhotoEditorViewController" customModule="iOSPhotoEditor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="H7S-yr-kf7" customClass="MediaEditorViewController" customModule="iOSPhotoEditor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aSK-7g-yya">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

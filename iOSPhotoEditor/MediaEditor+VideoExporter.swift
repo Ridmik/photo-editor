@@ -7,7 +7,7 @@
 
 import AVFoundation
 
-extension PhotoEditorViewController {
+extension MediaEditorViewController {
     // This implementation is a combination of below two:
     // https://www.raywenderlich.com/6236502-avfoundation-tutorial-adding-overlays-and-animations-to-videos
     // https://www.raywenderlich.com/10857372-how-to-play-record-and-merge-videos-in-ios-and-swift
@@ -119,7 +119,7 @@ extension PhotoEditorViewController {
     
 }
 
-extension PhotoEditorViewController {
+extension MediaEditorViewController {
     
     private func videoCompositionLayerInstruction(compositionTrack: AVCompositionTrack, assetTrack: AVAssetTrack, renderSize: CGSize, topOffset: CGFloat) -> AVMutableVideoCompositionLayerInstruction {
         

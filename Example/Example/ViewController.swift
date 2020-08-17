@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: PhotoEditorDelegate {
+extension ViewController: MediaEditorDelegate {
     
     func doneEditing(image: UIImage) {
         imageView.image = image
@@ -70,23 +70,23 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         picker.dismiss(animated: true, completion: nil)
         
         if let image = info[.originalImage] as? UIImage {
-            let photoEditor = PhotoEditorViewController.makeForImage(image)
-            photoEditor.photoEditorDelegate = self
+            let editor = MediaEditorViewController.makeForImage(image)
+            editor.mediaEditorDelegate = self
             //Colors for drawing and Text, If not set default values will be used
-            //photoEditor.colors = [.red, .blue, .green]
+            //editor.colors = [.red, .blue, .green]
             
             //Stickers that the user will choose from to add on the image
             for i in 0...10 {
-                photoEditor.stickers.append(UIImage(named: i.description )!)
+                editor.stickers.append(UIImage(named: i.description )!)
             }
             
             //To hide controls - array of enum Control
             //photoEditor.hiddenControls = [.crop, .draw, .share]
-            photoEditor.modalPresentationStyle = .fullScreen
-            present(photoEditor, animated: true, completion: nil)
+            editor.modalPresentationStyle = .fullScreen
+            present(editor, animated: true, completion: nil)
         } else if let videoURL = info[.mediaURL] as? URL {
-            let editor = PhotoEditorViewController.makeForVideo(videoURL)
-            editor.photoEditorDelegate = self
+            let editor = MediaEditorViewController.makeForVideo(videoURL)
+            editor.mediaEditorDelegate = self
             editor.modalPresentationStyle = .fullScreen
             present(editor, animated: true, completion: nil)
         }

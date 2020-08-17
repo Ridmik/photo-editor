@@ -29,12 +29,12 @@ public enum ContinueButtonStyle {
     case imageWithText(UIImage, String)
 }
 
-extension PhotoEditorViewController {
+extension MediaEditorViewController {
 
      //MARK: Top Toolbar
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        photoEditorDelegate?.canceledEditing()
+        mediaEditorDelegate?.canceledEditing()
         self.dismiss(animated: true, completion: nil)
     }
 
@@ -182,14 +182,14 @@ extension PhotoEditorViewController {
         switch self.media {
         case .photo(_):
             let img = self.canvasView.toImage()
-            photoEditorDelegate?.doneEditing(image: img)
+            mediaEditorDelegate?.doneEditing(image: img)
             self.dismiss(animated: true, completion: nil)
         case .video(_):
             showLoader()
             exportAsVideo { [weak self] url in
                 self?.hideLoader()
                 if let url = url {
-                    self?.photoEditorDelegate?.doneEditingVideo(url: url)
+                    self?.mediaEditorDelegate?.doneEditingVideo(url: url)
                 }
                 self?.dismiss(animated: true, completion: nil)
             }

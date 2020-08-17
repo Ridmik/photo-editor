@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension PhotoEditorViewController: UITextViewDelegate {
+extension MediaEditorViewController: UITextViewDelegate {
     
     public func textViewDidChange(_ textView: UITextView) {
         let rotation = atan2(textView.transform.b, textView.transform.a)

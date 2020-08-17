@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-public final class PhotoEditorViewController: UIViewController {
+public final class MediaEditorViewController: UIViewController {
     
     /** holding the 2 imageViews original image and drawing & stickers */
     @IBOutlet weak var canvasView: UIView!
@@ -59,7 +59,7 @@ public final class PhotoEditorViewController: UIViewController {
     /// Array of Colors that will show while drawing or typing
     public var colors  : [UIColor] = []
     
-    public var photoEditorDelegate: PhotoEditorDelegate?
+    public var mediaEditorDelegate: MediaEditorDelegate?
     
     /// List of controls to be hidden
     public var hiddenControls : [Control] = []
@@ -101,16 +101,16 @@ public final class PhotoEditorViewController: UIViewController {
         super.init(coder: coder)
     }
     
-    public static func makeForImage(_ image: UIImage, continueButtonStyle: ContinueButtonStyle = .icon) -> PhotoEditorViewController {
-        let editor = UIStoryboard(name: "Editor", bundle: Bundle(for: self)).instantiateInitialViewController() as! PhotoEditorViewController
+    public static func makeForImage(_ image: UIImage, continueButtonStyle: ContinueButtonStyle = .icon) -> MediaEditorViewController {
+        let editor = UIStoryboard(name: "Editor", bundle: Bundle(for: self)).instantiateInitialViewController() as! MediaEditorViewController
         editor.media = .photo(image)
         editor.defaultHiddenControls = [.trim, .volume]
         editor.continueButtonStyle = continueButtonStyle
         return editor
     }
     
-    public static func makeForVideo(_ url: URL, continueButtonStyle: ContinueButtonStyle = .icon) -> PhotoEditorViewController {
-        let editor = UIStoryboard(name: "Editor", bundle: Bundle(for: self)).instantiateInitialViewController() as! PhotoEditorViewController
+    public static func makeForVideo(_ url: URL, continueButtonStyle: ContinueButtonStyle = .icon) -> MediaEditorViewController {
+        let editor = UIStoryboard(name: "Editor", bundle: Bundle(for: self)).instantiateInitialViewController() as! MediaEditorViewController
         editor.media = .video(url)
         editor.defaultHiddenControls = [.crop, .marker]
         editor.continueButtonStyle = continueButtonStyle
@@ -243,7 +243,7 @@ public final class PhotoEditorViewController: UIViewController {
     
 }
 
-extension PhotoEditorViewController: ColorDelegate {
+extension MediaEditorViewController: ColorDelegate {
     func didSelectColor(color: UIColor) {
         if isDrawing {
             self.drawColor = color
@@ -254,7 +254,7 @@ extension PhotoEditorViewController: ColorDelegate {
     }
 }
 
-extension PhotoEditorViewController: TrimmerViewDelegate {
+extension MediaEditorViewController: TrimmerViewDelegate {
     
     public func didChangePositionBar(_ playerTime: CMTime) {
         stopPlaybackPeriodicObserver()
@@ -271,7 +271,7 @@ extension PhotoEditorViewController: TrimmerViewDelegate {
     
 }
 
-extension PhotoEditorViewController {
+extension MediaEditorViewController {
     enum Media {
         case photo(UIImage)
         case video(URL)
