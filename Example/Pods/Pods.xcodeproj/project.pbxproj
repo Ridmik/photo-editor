@@ -38,6 +38,7 @@
 		AD0B94BF66B5161D68007030B45757FA /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2D71A20ED9F3BD33552CC4508D1803 /* CropViewController.swift */; };
 		AF5424B824E02ADD00DA5B9D /* UIImageView+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5424B724E02ADD00DA5B9D /* UIImageView+Image.swift */; };
 		AF5B5B5C24D2075B00168FF0 /* CircularView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5B5B5B24D2075B00168FF0 /* CircularView.swift */; };
+		AF78C65324EC8B8B00965765 /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF78C65224EC8B8B00965765 /* CircularImageView.swift */; };
 		AF7B07E524E46EF200878BA5 /* AssetVideoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7B07DB24E46EF200878BA5 /* AssetVideoScrollView.swift */; };
 		AF7B07E624E46EF200878BA5 /* AVAssetTimeSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7B07DC24E46EF200878BA5 /* AVAssetTimeSelector.swift */; };
 		AF7B07E724E46EF200878BA5 /* ThumbSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7B07DD24E46EF200878BA5 /* ThumbSelectorView.swift */; };
@@ -50,7 +51,6 @@
 		AFEE805D24DBD2AB0038FF02 /* Editor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFEE805C24DBD2AB0038FF02 /* Editor.storyboard */; };
 		AFEE805F24DDDA500038FF02 /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEE805E24DDDA500038FF02 /* VideoPlayer.swift */; };
 		AFEEB7A024E9B18E00A7E380 /* RoundedCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEEB79F24E9B18E00A7E380 /* RoundedCornerView.swift */; };
-		AFEEB7A224E9B29300A7E380 /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEEB7A124E9B29300A7E380 /* CircularImageView.swift */; };
 		BE6ED67FC981FB3C737D11D07AAFAF23 /* UIImageView+Alpha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F4151DF652BE2E9B9F7767016BFFDD /* UIImageView+Alpha.swift */; };
 		BE813230C93635D7C86ED53D03176055 /* MediaEditor+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F595F7F53AE5DD32B9EB52D334FBEA9C /* MediaEditor+Keyboard.swift */; };
 		C2AD8B55233BA0A62A4BA1862A0CA7FC /* UIImage+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933DB95E93A7903FA2B9E43EB2BE146A /* UIImage+Size.swift */; };
@@ -118,6 +118,7 @@
 		ACE663A8B720C5083D9CF0D0B1DCC84B /* ColorCollectionViewCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = ColorCollectionViewCell.xib; path = iOSPhotoEditor/ColorCollectionViewCell.xib; sourceTree = "<group>"; };
 		AF5424B724E02ADD00DA5B9D /* UIImageView+Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIImageView+Image.swift"; path = "iOSPhotoEditor/UIImageView+Image.swift"; sourceTree = "<group>"; };
 		AF5B5B5B24D2075B00168FF0 /* CircularView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircularView.swift; path = iOSPhotoEditor/CircularView.swift; sourceTree = "<group>"; };
+		AF78C65224EC8B8B00965765 /* CircularImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircularImageView.swift; path = iOSPhotoEditor/CircularImageView.swift; sourceTree = "<group>"; };
 		AF7B07DB24E46EF200878BA5 /* AssetVideoScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetVideoScrollView.swift; sourceTree = "<group>"; };
 		AF7B07DC24E46EF200878BA5 /* AVAssetTimeSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVAssetTimeSelector.swift; sourceTree = "<group>"; };
 		AF7B07DD24E46EF200878BA5 /* ThumbSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbSelectorView.swift; sourceTree = "<group>"; };
@@ -131,7 +132,6 @@
 		AFEE805C24DBD2AB0038FF02 /* Editor.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Editor.storyboard; path = iOSPhotoEditor/Editor.storyboard; sourceTree = "<group>"; };
 		AFEE805E24DDDA500038FF02 /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VideoPlayer.swift; path = iOSPhotoEditor/VideoPlayer.swift; sourceTree = "<group>"; };
 		AFEEB79F24E9B18E00A7E380 /* RoundedCornerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundedCornerView.swift; path = iOSPhotoEditor/RoundedCornerView.swift; sourceTree = "<group>"; };
-		AFEEB7A124E9B29300A7E380 /* CircularImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularImageView.swift; sourceTree = "<group>"; };
 		B0DB9EAE254A3F23448F39F183200227 /* Protocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Protocols.swift; path = iOSPhotoEditor/Protocols.swift; sourceTree = "<group>"; };
 		B45138496B85A072654D1D0F8EBBEDE5 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		BCC48BCE33483D47E42B5BBB267F06B8 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = iOSPhotoEditor/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -187,7 +187,7 @@
 		140932B18EC32D40E27FFA7E06C62380 /* iOSPhotoEditor */ = {
 			isa = PBXGroup;
 			children = (
-				AFEEB7A124E9B29300A7E380 /* CircularImageView.swift */,
+				AF78C65224EC8B8B00965765 /* CircularImageView.swift */,
 				AF5B5B5B24D2075B00168FF0 /* CircularView.swift */,
 				25E801AC8882FCD75951CC6E7ECC94E6 /* ColorCollectionViewCell.swift */,
 				49687ED7B6DC2DA33A3DD3E3798657DC /* ColorsCollectionViewDelegate.swift */,
@@ -487,7 +487,7 @@
 				AF5B5B5C24D2075B00168FF0 /* CircularView.swift in Sources */,
 				D1F24684C70512232E6F3136AB8DEDD1 /* ColorCollectionViewCell.swift in Sources */,
 				929ACED27ECBB334AF60003B77268799 /* ColorsCollectionViewDelegate.swift in Sources */,
-				AFEEB7A224E9B29300A7E380 /* CircularImageView.swift in Sources */,
+				AF78C65324EC8B8B00965765 /* CircularImageView.swift in Sources */,
 				AFEEB7A024E9B18E00A7E380 /* RoundedCornerView.swift in Sources */,
 				0FFDF3D5E48443D8A0AB37884C4D4518 /* CropRectView.swift in Sources */,
 				36148101296437E3737248F388FB689B /* CropView.swift in Sources */,
