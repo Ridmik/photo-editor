@@ -82,7 +82,7 @@ extension MediaEditorViewController {
             // add the canvas layer to video composition
             videoComposition.animationTool = AVVideoCompositionCoreAnimationTool(postProcessingAsVideoLayer: videoLayer, in: outputLayer)
             
-            guard let export = AVAssetExportSession(asset: mixComposition, presetName: AVAssetExportPresetHighestQuality)
+            guard let export = AVAssetExportSession(asset: mixComposition, presetName: AVAssetExportPresetMediumQuality)
                 else {
                     print("Cannot create export session.")
                     onComplete(nil)
@@ -92,10 +92,10 @@ extension MediaEditorViewController {
             let videoName = UUID().uuidString
             let exportURL = URL(fileURLWithPath: NSTemporaryDirectory())
                 .appendingPathComponent(videoName)
-                .appendingPathExtension("mov")
+                .appendingPathExtension("mp4")
             
             export.videoComposition = videoComposition
-            export.outputFileType = .mov
+            export.outputFileType = .mp4
             export.outputURL = exportURL
             
             export.exportAsynchronously {
