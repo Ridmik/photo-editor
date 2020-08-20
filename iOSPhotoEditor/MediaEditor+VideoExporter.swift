@@ -45,15 +45,13 @@ extension MediaEditorViewController {
             let videoSize = view.bounds.size    // logical size of video shown on screen
             let scale = UIScreen.main.scale
             let renderSize = CGSize(width: videoSize.width * scale, height: videoSize.height * scale)
-            // FIXME: Not sure if this 44 value is correct for all device sizes. May need to replace with the height of navigation bar.
-            let topOffset = 44 * scale
             
             // Composition Instructions
             let compositionInstruction = AVMutableVideoCompositionInstruction()
             compositionInstruction.timeRange = CMTimeRangeMake(start: .zero, duration: asset.duration)
             
             // Set up the layer instruction
-            let layerInstruction = videoCompositionLayerInstruction(compositionTrack: compositionTrack, assetTrack: assetTrack, renderSize: renderSize, topOffset: topOffset)
+            let layerInstruction = videoCompositionLayerInstruction(compositionTrack: compositionTrack, assetTrack: assetTrack, renderSize: renderSize)
             
             // Add layer instruction to composition instruction and create a mutable video composition
             compositionInstruction.layerInstructions = [layerInstruction]
@@ -121,7 +119,7 @@ extension MediaEditorViewController {
 
 extension MediaEditorViewController {
     
-    private func videoCompositionLayerInstruction(compositionTrack: AVCompositionTrack, assetTrack: AVAssetTrack, renderSize: CGSize, topOffset: CGFloat) -> AVMutableVideoCompositionLayerInstruction {
+    private func videoCompositionLayerInstruction(compositionTrack: AVCompositionTrack, assetTrack: AVAssetTrack, renderSize: CGSize) -> AVMutableVideoCompositionLayerInstruction {
         
         let instruction = AVMutableVideoCompositionLayerInstruction(assetTrack: compositionTrack)
         
@@ -134,7 +132,7 @@ extension MediaEditorViewController {
             instruction.setTransform(assetTrack.preferredTransform.concatenating(scale), at: .zero)
         } else {
             let scale = CGAffineTransform(scaleX: scaleToFitRatio, y: scaleToFitRatio)
-            let translationY = (renderSize.width / 2) + topOffset
+            let translationY = (renderSize.height / 2) - ((assetTrack.naturalSize.height * scaleToFitRatio) / 2)
             let translation = CGAffineTransform(translationX: 0, y: translationY)
             var concat = assetTrack.preferredTransform.concatenating(scale).concatenating(translation)
             if assetInfo.orientation == .down {
