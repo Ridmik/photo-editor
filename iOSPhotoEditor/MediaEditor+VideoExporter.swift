@@ -123,14 +123,22 @@ extension MediaEditorViewController {
         
         let instruction = AVMutableVideoCompositionLayerInstruction(assetTrack: compositionTrack)
         
-        let assetInfo = orientation(from: assetTrack.preferredTransform)
+        let assetInfo = orientation(from: assetTrack)
         
-        var scaleToFitRatio = renderSize.width / assetTrack.naturalSize.width
         if assetInfo.isPortrait {
-            scaleToFitRatio = renderSize.width / assetTrack.naturalSize.height
+            let scaleToFitRatio = renderSize.width / assetTrack.naturalSize.height
             let scale = CGAffineTransform(scaleX: scaleToFitRatio, y: scaleToFitRatio)
-            instruction.setTransform(assetTrack.preferredTransform.concatenating(scale), at: .zero)
+            
+            // applying scale spoils the vertical position for a portrait video asset captured with front camera but not rear camera
+            // the key to fix this is to negate the delta y in the transformation matrix of `scale` applied to the asset
+            // hence the `scaledTransformVerticalTranslation` is used below
+            let scaledTransform = assetTrack.preferredTransform.concatenating(scale)
+            let scaledTransformVerticalTranslation = CGAffineTransform(a: 1, b: 0, c: 0, d: 1, tx: 0, ty: -scaledTransform.ty)
+            
+            let concat = assetTrack.preferredTransform.concatenating(scale).concatenating(scaledTransformVerticalTranslation)
+            instruction.setTransform(concat, at: .zero)
         } else {
+            let scaleToFitRatio = renderSize.width / assetTrack.naturalSize.width
             let scale = CGAffineTransform(scaleX: scaleToFitRatio, y: scaleToFitRatio)
             let translationY = (renderSize.height / 2) - ((assetTrack.naturalSize.height * scaleToFitRatio) / 2)
             let translation = CGAffineTransform(translationX: 0, y: translationY)
@@ -149,19 +157,32 @@ extension MediaEditorViewController {
         
     }
     
-    private func orientation(from transform: CGAffineTransform) -> (orientation: UIImage.Orientation, isPortrait: Bool) {
+    private func orientation(from assetTrack: AVAssetTrack) -> (orientation: UIImage.Orientation, isPortrait: Bool) {
+        
         var assetOrientation = UIImage.Orientation.up
-        var isPortrait = false
+        
+        let transform = assetTrack.preferredTransform
         if transform.a == 0 && transform.b == 1.0 && transform.c == -1.0 && transform.d == 0 {
             assetOrientation = .right
-            isPortrait = true
         } else if transform.a == 0 && transform.b == -1.0 && transform.c == 1.0 && transform.d == 0 {
             assetOrientation = .left
-            isPortrait = true
         } else if transform.a == 1.0 && transform.b == 0 && transform.c == 0 && transform.d == 1.0 {
             assetOrientation = .up
         } else if transform.a == -1.0 && transform.b == 0 && transform.c == 0 && transform.d == -1.0 {
             assetOrientation = .down
+        }
+        
+        // this formula is from: https://stackoverflow.com/a/39596966/3687801
+        let isPortrait: Bool
+        switch (transform.tx, transform.ty) {
+        case (0, 0):
+            isPortrait = false
+        case (assetTrack.naturalSize.width, assetTrack.naturalSize.height):
+            isPortrait = false
+        case (0, assetTrack.naturalSize.width):
+            isPortrait = true
+        default:
+            isPortrait = true
         }
         
         return (assetOrientation, isPortrait)
