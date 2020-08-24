@@ -15,7 +15,6 @@ public final class MediaEditorViewController: UIViewController {
     @IBOutlet weak var canvasView: UIView!
     //To hold the image
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
     //To hold the drawings and stickers
     @IBOutlet weak var canvasImageView: UIImageView!
     @IBOutlet weak var videoPlayerView: VideoPlayer!
@@ -197,8 +196,6 @@ public final class MediaEditorViewController: UIViewController {
     
     func setImageView(image: UIImage) {
         imageView.image = image
-        let size = image.suitableSize(widthLimit: UIScreen.main.bounds.width)
-        imageViewHeightConstraint.constant = (size?.height)!
     }
     
     func hideToolbar(hide: Bool) {
