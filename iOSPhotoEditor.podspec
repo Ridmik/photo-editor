@@ -18,5 +18,6 @@ with the ability to scale and rotate objects
   s.source_files = "iOSPhotoEditor/**/*.{swift}"
   s.exclude_files = ""
   s.resources = "iOSPhotoEditor/**/*.{png,jpeg,jpg,storyboard,xib,ttf}"
+  s.dependency 'PryntTrimmerView', '~> 4.0.2'
 
 end

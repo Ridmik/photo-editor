@@ -1,15 +1,22 @@
 PODS:
-  - iOSPhotoEditor (1.0.0)
+  - iOSPhotoEditor (1.0.0):
+    - PryntTrimmerView (~> 4.0.2)
+  - PryntTrimmerView (4.0.2)
 
 DEPENDENCIES:
   - iOSPhotoEditor (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - PryntTrimmerView
 
 EXTERNAL SOURCES:
   iOSPhotoEditor:
     :path: "../"
 
 SPEC CHECKSUMS:
-  iOSPhotoEditor: 50f4cc0bff673e56df0cbeaf4deb274146a9308d
+  iOSPhotoEditor: cf0a98ed656b77cff56cefa61944688c5bb9268a
+  PryntTrimmerView: 6a43cc90df5d99addeabd33d4ba09b1365322130
 
 PODFILE CHECKSUM: 2cbc686ac94b7af589e450269ebfd1a761748a12
 

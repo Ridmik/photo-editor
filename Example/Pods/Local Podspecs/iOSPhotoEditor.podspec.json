@@ -22,5 +22,10 @@
   "source_files": "iOSPhotoEditor/**/*.{swift}",
   "exclude_files": "",
   "resources": "iOSPhotoEditor/**/*.{png,jpeg,jpg,storyboard,xib,ttf}",
+  "dependencies": {
+    "PryntTrimmerView": [
+      "~> 4.0.2"
+    ]
+  },
   "swift_version": "5.0"
 }

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H7S-yr-kf7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H7S-yr-kf7">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -68,9 +69,9 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7jj-Fh-bKe" customClass="TrimmerView" customModule="iOSPhotoEditor" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7jj-Fh-bKe" customClass="TrimmerView" customModule="PryntTrimmerView">
                                                 <rect key="frame" x="0.0" y="51.5" width="374" height="70"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="70" id="suO-uo-jFD"/>
                                                 </constraints>
@@ -107,7 +108,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fQd-zv-KLb" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CBv-bW-hum">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CBv-bW-hum">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                         <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
                                                         <size key="titleShadowOffset" width="1" height="0.0"/>
@@ -131,7 +132,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uw9-e1-ZB4" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
                                                 <rect key="frame" x="40" y="0.0" width="30" height="30"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kuv-uG-z23">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kuv-uG-z23">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                         <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
                                                         <size key="titleShadowOffset" width="1" height="0.0"/>
@@ -155,7 +156,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bGJ-ge-Qm0" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
                                                 <rect key="frame" x="80" y="0.0" width="30" height="30"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDK-JG-luZ">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDK-JG-luZ">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                         <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
                                                         <size key="titleShadowOffset" width="1" height="0.0"/>
@@ -179,7 +180,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8JX-uU-aKH" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
                                                 <rect key="frame" x="120" y="0.0" width="30" height="30"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEl-cS-o5u">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEl-cS-o5u">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                         <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
                                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -208,7 +209,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OeP-3h-MnI" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
                                                 <rect key="frame" x="160" y="0.0" width="30" height="30"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19b-9t-eLi">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19b-9t-eLi">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                         <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
                                                         <state key="normal" title="">
@@ -231,7 +232,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="raZ-S6-lYm" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
                                                 <rect key="frame" x="200" y="0.0" width="30" height="30"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aGD-ca-jLQ">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aGD-ca-jLQ">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                         <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
                                                         <size key="titleShadowOffset" width="1" height="0.0"/>
@@ -255,7 +256,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ceq-xu-VmM" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
                                                 <rect key="frame" x="240" y="0.0" width="30" height="30"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Zl-58-c2z">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Zl-58-c2z">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                         <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
                                                         <size key="titleShadowOffset" width="1" height="0.0"/>
@@ -279,7 +280,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3GL-s4-AHw" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
                                                 <rect key="frame" x="280" y="0.0" width="30" height="30"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvJ-e2-wYH">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvJ-e2-wYH">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                         <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
                                                         <size key="titleShadowOffset" width="1" height="0.0"/>
@@ -303,7 +304,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f0O-DQ-Raj" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
                                                 <rect key="frame" x="320" y="0.0" width="30" height="30"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fwe-s4-2Pl">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fwe-s4-2Pl">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                         <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
                                                         <size key="titleShadowOffset" width="1" height="0.0"/>
@@ -333,7 +334,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="09W-Ad-j64" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
                                         <rect key="frame" x="12" y="10" width="40" height="40"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKi-Om-7Ha">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKi-Om-7Ha">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                 <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
                                                 <size key="titleShadowOffset" width="1" height="0.0"/>
@@ -382,7 +383,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SWg-4f-D37" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Rw-Wi-oL4">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Rw-Wi-oL4">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                         <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
                                                         <size key="titleShadowOffset" width="1" height="0.0"/>
@@ -449,7 +450,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3I1-LP-cEr" customClass="CircularView" customModule="iOSPhotoEditor" customModuleProvider="target">
                                                 <rect key="frame" x="110" y="0.0" width="40" height="40"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="daV-HR-Ghl">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="daV-HR-Ghl">
                                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                         <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="15"/>
                                                         <size key="titleShadowOffset" width="1" height="0.0"/>
@@ -484,7 +485,7 @@
                                     <constraint firstItem="r9d-DB-uWX" firstAttribute="leading" secondItem="ze0-hP-vvd" secondAttribute="leading" constant="12" id="ue3-so-kUT"/>
                                 </constraints>
                             </view>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGV-eN-jgj">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGV-eN-jgj">
                                 <rect key="frame" x="362" y="60" width="40" height="32"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <size key="titleShadowOffset" width="1" height="0.0"/>
@@ -502,7 +503,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XcT-LA-qum">
                                         <rect key="frame" x="9.5" y="10" width="31" height="30"/>
                                         <fontDescription key="fontDescription" name="icomoon" family="icomoon" pointSize="30"/>
-                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.1532266695" colorSpace="calibratedRGB"/>
                                         <size key="shadowOffset" width="1" height="0.0"/>
@@ -557,6 +558,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="k7E-He-fig"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="h7I-tm-jmb" secondAttribute="bottom" id="0gg-rf-syZ"/>
@@ -592,7 +594,6 @@
                             <constraint firstItem="ze0-hP-vvd" firstAttribute="top" secondItem="XSs-5t-mWL" secondAttribute="top" id="yEx-wk-vHc"/>
                             <constraint firstAttribute="bottom" secondItem="XSs-5t-mWL" secondAttribute="bottom" id="zMA-6Q-cEc"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="k7E-He-fig"/>
                     </view>
                     <connections>
                         <outlet property="activityIndicatorContainerView" destination="iZf-Yi-U7z" id="l0b-Ez-yIr"/>
@@ -633,4 +634,12 @@
             <point key="canvasLocation" x="31.884057971014496" y="94.419642857142847"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
