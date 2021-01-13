@@ -320,6 +320,7 @@ extension MediaEditorViewController {
                 continueIconButton.isHidden = true
             }
             // setup custom button view
+            continueButtonImageView.contentMode = .scaleAspectFill
             continueButtonImageView.image = image
             continueButtonLabel.text = text
             // add gesture
