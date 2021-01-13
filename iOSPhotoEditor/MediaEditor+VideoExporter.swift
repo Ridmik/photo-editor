@@ -90,10 +90,10 @@ extension MediaEditorViewController {
             let videoName = UUID().uuidString
             let exportURL = URL(fileURLWithPath: NSTemporaryDirectory())
                 .appendingPathComponent(videoName)
-                .appendingPathExtension("mp4")
+                .appendingPathExtension("mov")
             
             export.videoComposition = videoComposition
-            export.outputFileType = .mp4
+            export.outputFileType = .mov
             export.outputURL = exportURL
             
             export.exportAsynchronously {
