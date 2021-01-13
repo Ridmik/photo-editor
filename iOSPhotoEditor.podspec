@@ -14,9 +14,10 @@ with the ability to scale and rotate objects
   s.source           = { :git => 'https://github.com/M-Hamed/photo-editor.git', :tag => s.version.to_s }
   s.swift_version    = '5.0'
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '11.0'
   s.source_files = "iOSPhotoEditor/**/*.{swift}"
   s.exclude_files = ""
   s.resources = "iOSPhotoEditor/**/*.{png,jpeg,jpg,storyboard,xib,ttf}"
+  s.dependency 'PryntTrimmerView', '~> 4.0.2'
 
 end

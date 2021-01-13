@@ -7,7 +7,7 @@
 //
 import UIKit
 
-extension PhotoEditorViewController {
+extension MediaEditorViewController {
     
     override public func touchesBegan(_ touches: Set<UITouch>,
                                       with event: UIEvent?){

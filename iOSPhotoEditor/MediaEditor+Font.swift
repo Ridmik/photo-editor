@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-extension PhotoEditorViewController {
+extension MediaEditorViewController {
     
     //Resources don't load in main bundle we have to register the font
     func registerFont() {
-        let bundle = Bundle(for: PhotoEditorViewController.self)
+        let bundle = Bundle(for: MediaEditorViewController.self)
             let url =  bundle.url(forResource: "icomoon", withExtension: "ttf")
             
             guard let fontDataProvider = CGDataProvider(url: url! as CFURL) else {

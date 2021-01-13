@@ -8,27 +8,54 @@
 
 import UIKit
 import iOSPhotoEditor
+import AVFoundation
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var videoPlayerView: VideoPlayer!
+    
+    private let queuePlayer = AVQueuePlayer()
+    private var playerLooper: AVPlayerLooper?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageView.isHidden = true
+        videoPlayerView.isHidden = true
     }
     
-    @IBAction func pickImageButtonTapped(_ sender: Any) {
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        queuePlayer.pause()
+    }
+    
+    @IBAction func pickMediaButtonTapped(_ sender: Any) {
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.sourceType = .photoLibrary
+        picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
         present(picker, animated: true, completion: nil)
     }
 }
 
-extension ViewController: PhotoEditorDelegate {
+extension ViewController: MediaEditorDelegate {
     
     func doneEditing(image: UIImage) {
         imageView.image = image
+        imageView.isHidden = false
+        videoPlayerView.isHidden = true
+    }
+    
+    func doneEditingVideo(url: URL) {
+        // play video
+        let asset = AVURLAsset(url: url)
+        let item = AVPlayerItem(asset: asset)
+        playerLooper = AVPlayerLooper(player: queuePlayer, templateItem: item)
+        videoPlayerView.player = queuePlayer
+        
+        queuePlayer.play()
+        imageView.isHidden = true
+        videoPlayerView.isHidden = false
     }
     
     func canceledEditing() {
@@ -38,47 +65,35 @@ extension ViewController: PhotoEditorDelegate {
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-// Local variable inserted by Swift 4.2 migrator.
-let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
-
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        guard let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage else {
-            picker.dismiss(animated: true, completion: nil)
-            return
-        }
         picker.dismiss(animated: true, completion: nil)
         
-        
-        let photoEditor = PhotoEditorViewController(nibName:"PhotoEditorViewController",bundle: Bundle(for: PhotoEditorViewController.self))
-        photoEditor.photoEditorDelegate = self
-        photoEditor.image = image
-        //Colors for drawing and Text, If not set default values will be used
-        //photoEditor.colors = [.red, .blue, .green]
-        
-        //Stickers that the user will choose from to add on the image
-        for i in 0...10 {
-            photoEditor.stickers.append(UIImage(named: i.description )!)
+        if let image = info[.originalImage] as? UIImage {
+            let editor = MediaEditorViewController.makeForImage(image)
+            editor.mediaEditorDelegate = self
+            //Colors for drawing and Text, If not set default values will be used
+            //editor.colors = [.red, .blue, .green]
+            
+            //Stickers that the user will choose from to add on the image
+            for i in 0...10 {
+                editor.stickers.append(UIImage(named: i.description )!)
+            }
+            
+            //To hide controls - array of enum Control
+            //photoEditor.hiddenControls = [.crop, .draw, .share]
+            editor.modalPresentationStyle = .fullScreen
+            present(editor, animated: true, completion: nil)
+        } else if let videoURL = info[.mediaURL] as? URL {
+            let editor = MediaEditorViewController.makeForVideo(videoURL)
+            editor.mediaEditorDelegate = self
+            editor.modalPresentationStyle = .fullScreen
+            present(editor, animated: true, completion: nil)
         }
         
-        //To hide controls - array of enum Control
-        //photoEditor.hiddenControls = [.crop, .draw, .share]
-        photoEditor.modalPresentationStyle = UIModalPresentationStyle.currentContext //or .overFullScreen for transparency
-        present(photoEditor, animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
-	return input.rawValue
 }

@@ -17,10 +17,15 @@
   },
   "swift_versions": "5.0",
   "platforms": {
-    "ios": "9.0"
+    "ios": "11.0"
   },
   "source_files": "iOSPhotoEditor/**/*.{swift}",
   "exclude_files": "",
   "resources": "iOSPhotoEditor/**/*.{png,jpeg,jpg,storyboard,xib,ttf}",
+  "dependencies": {
+    "PryntTrimmerView": [
+      "~> 4.0.2"
+    ]
+  },
   "swift_version": "5.0"
 }
