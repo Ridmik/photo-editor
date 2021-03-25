@@ -35,7 +35,6 @@ extension MediaEditorViewController {
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
         mediaEditorDelegate?.mediaEditorViewControllerCanceledEditing(self)
-        self.dismiss(animated: true, completion: nil)
     }
 
     @IBAction func cropButtonTapped(_ sender: UIButton) {
@@ -183,7 +182,6 @@ extension MediaEditorViewController {
         case .photo(_):
             let img = self.canvasView.toImage()
             mediaEditorDelegate?.mediaEditorViewController(self, doneEditing: img)
-            self.dismiss(animated: true, completion: nil)
         case .video(_):
             showLoader()
             exportAsVideo { [weak self] url in
@@ -191,7 +189,6 @@ extension MediaEditorViewController {
                 if let self = self, let url = url {
                     self.mediaEditorDelegate?.mediaEditorViewController(self, doneEditingVideo: url)
                 }
-                self?.dismiss(animated: true, completion: nil)
             }
         case .none:
             break
