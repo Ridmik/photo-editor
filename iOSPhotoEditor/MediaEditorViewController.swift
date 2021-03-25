@@ -12,6 +12,23 @@ import PryntTrimmerView
 
 public final class MediaEditorViewController: UIViewController {
     
+    public enum VideoQuality {
+        case low
+        case medium
+        case highest
+        
+        var exportPreset: String {
+            switch self {
+            case .low:
+                return AVAssetExportPresetLowQuality
+            case .medium:
+                return AVAssetExportPresetMediumQuality
+            case .highest:
+                return AVAssetExportPresetHighestQuality
+            }
+        }
+    }
+    
     /** holding the 2 imageViews original image and drawing & stickers */
     @IBOutlet weak var canvasView: UIView!
     //To hold the image
@@ -92,6 +109,7 @@ public final class MediaEditorViewController: UIViewController {
             volumeButton.isSelected = isAudioMuted
         }
     }
+    var videoQuality = VideoQuality.highest
     
     private let queuePlayer = AVQueuePlayer()
     private var playerLooper: AVPlayerLooper?
@@ -109,11 +127,12 @@ public final class MediaEditorViewController: UIViewController {
         return editor
     }
     
-    public static func makeForVideo(_ url: URL, continueButtonStyle: ContinueButtonStyle = .icon) -> MediaEditorViewController {
+    public static func makeForVideo(_ url: URL, continueButtonStyle: ContinueButtonStyle = .icon, videoQuality: VideoQuality = .highest) -> MediaEditorViewController {
         let editor = UIStoryboard(name: "Editor", bundle: Bundle(for: self)).instantiateInitialViewController() as! MediaEditorViewController
         editor.media = .video(url)
         editor.defaultHiddenControls = [.crop, .marker]
         editor.continueButtonStyle = continueButtonStyle
+        editor.videoQuality = videoQuality
         return editor
     }
     
