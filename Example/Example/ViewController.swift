@@ -41,25 +41,29 @@ class ViewController: UIViewController {
 extension ViewController: MediaEditorDelegate {
     
     func mediaEditorViewController(_ controller: MediaEditorViewController, doneEditing image: UIImage) {
-        imageView.image = image
-        imageView.isHidden = false
-        videoPlayerView.isHidden = true
+        controller.dismiss(animated: true) { [self] in
+            imageView.image = image
+            imageView.isHidden = false
+            videoPlayerView.isHidden = true
+        }
     }
     
     func mediaEditorViewController(_ controller: MediaEditorViewController, doneEditingVideo url: URL) {
-        // play video
-        let asset = AVURLAsset(url: url)
-        let item = AVPlayerItem(asset: asset)
-        playerLooper = AVPlayerLooper(player: queuePlayer, templateItem: item)
-        videoPlayerView.player = queuePlayer
-        
-        queuePlayer.play()
-        imageView.isHidden = true
-        videoPlayerView.isHidden = false
+        controller.dismiss(animated: true) { [self] in
+            // play video
+            let asset = AVURLAsset(url: url)
+            let item = AVPlayerItem(asset: asset)
+            playerLooper = AVPlayerLooper(player: queuePlayer, templateItem: item)
+            videoPlayerView.player = queuePlayer
+            
+            queuePlayer.play()
+            imageView.isHidden = true
+            videoPlayerView.isHidden = false
+        }
     }
     
     func mediaEditorViewControllerCanceledEditing(_ controller: MediaEditorViewController) {
-        print("Canceled")
+        controller.dismiss(animated: true)
     }
 }
 
