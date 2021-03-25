@@ -257,6 +257,9 @@ public final class MediaEditorViewController: UIViewController {
         return "\(integerDuration) sec"
     }
     
+    public func showVideoTrimmingControl() {
+        trimButtonTapped(trimButton)
+    }
     
 }
 
