@@ -40,13 +40,13 @@ class ViewController: UIViewController {
 
 extension ViewController: MediaEditorDelegate {
     
-    func doneEditing(image: UIImage) {
+    func mediaEditorViewController(_ controller: MediaEditorViewController, doneEditing image: UIImage) {
         imageView.image = image
         imageView.isHidden = false
         videoPlayerView.isHidden = true
     }
     
-    func doneEditingVideo(url: URL) {
+    func mediaEditorViewController(_ controller: MediaEditorViewController, doneEditingVideo url: URL) {
         // play video
         let asset = AVURLAsset(url: url)
         let item = AVPlayerItem(asset: asset)
@@ -58,7 +58,7 @@ extension ViewController: MediaEditorDelegate {
         videoPlayerView.isHidden = false
     }
     
-    func canceledEditing() {
+    func mediaEditorViewControllerCanceledEditing(_ controller: MediaEditorViewController) {
         print("Canceled")
     }
 }

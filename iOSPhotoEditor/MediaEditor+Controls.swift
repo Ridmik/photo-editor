@@ -34,7 +34,7 @@ extension MediaEditorViewController {
      //MARK: Top Toolbar
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
-        mediaEditorDelegate?.canceledEditing()
+        mediaEditorDelegate?.mediaEditorViewControllerCanceledEditing(self)
         self.dismiss(animated: true, completion: nil)
     }
 
@@ -182,14 +182,14 @@ extension MediaEditorViewController {
         switch self.media {
         case .photo(_):
             let img = self.canvasView.toImage()
-            mediaEditorDelegate?.doneEditing(image: img)
+            mediaEditorDelegate?.mediaEditorViewController(self, doneEditing: img)
             self.dismiss(animated: true, completion: nil)
         case .video(_):
             showLoader()
             exportAsVideo { [weak self] url in
                 self?.hideLoader()
-                if let url = url {
-                    self?.mediaEditorDelegate?.doneEditingVideo(url: url)
+                if let self = self, let url = url {
+                    self.mediaEditorDelegate?.mediaEditorViewController(self, doneEditingVideo: url)
                 }
                 self?.dismiss(animated: true, completion: nil)
             }
