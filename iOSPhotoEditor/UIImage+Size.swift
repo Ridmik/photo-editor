@@ -10,24 +10,24 @@ import UIKit
 
 public extension UIImage {
     
+    enum Limit {
+        case width(CGFloat)
+        case height(CGFloat)
+    }
+    
     /**
      Suitable size for specific height or width to keep same image ratio
      */
-    func suitableSize(heightLimit: CGFloat? = nil,
-                             widthLimit: CGFloat? = nil )-> CGSize? {
+    func suitableSize(limit: Limit)-> CGSize {
         
-        if let height = heightLimit {
-            
-            let width = (height / self.size.height) * self.size.width
-            
-            return CGSize(width: width, height: height)
-        }
-        
-        if let width = widthLimit {
+        switch limit {
+        case .width(let width):
             let height = (width / self.size.width) * self.size.height
             return CGSize(width: width, height: height)
+        case .height(let height):
+            let width = (height / self.size.height) * self.size.width
+            return CGSize(width: width, height: height)
         }
         
-        return nil
     }
 }
