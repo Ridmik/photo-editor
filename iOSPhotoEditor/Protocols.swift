@@ -34,7 +34,7 @@ public protocol MediaEditorDelegate {
  - didSelectImage
  - stickersViewDidDisappear
  */
-protocol StickersViewControllerDelegate {
+protocol StickersViewControllerDelegate: class {
     /**
      - Parameter view: selected view from StickersViewController
      */
@@ -52,6 +52,6 @@ protocol StickersViewControllerDelegate {
 /**
  - didSelectColor
  */
-protocol ColorDelegate {
+protocol ColorDelegate: class {
     func didSelectColor(color: UIColor)
 }

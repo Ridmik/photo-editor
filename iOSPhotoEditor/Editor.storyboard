@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H7S-yr-kf7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H7S-yr-kf7">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,18 +22,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h7I-tm-jmb" userLabel="canvas">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h7I-tm-jmb" userLabel="canvas">
+                                <rect key="frame" x="0.0" y="198" width="414" height="500"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wN2-TL-kX0" customClass="VideoPlayer" customModule="iOSPhotoEditor" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oPX-ed-tNw">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
                                     </imageView>
                                     <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iaw-ys-0TB">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
@@ -44,6 +44,7 @@
                                     <constraint firstAttribute="bottom" secondItem="oPX-ed-tNw" secondAttribute="bottom" id="HLF-mp-Kf4"/>
                                     <constraint firstAttribute="trailing" secondItem="oPX-ed-tNw" secondAttribute="trailing" id="O7S-iL-A4X"/>
                                     <constraint firstAttribute="trailing" secondItem="Iaw-ys-0TB" secondAttribute="trailing" id="PWm-K3-iCW"/>
+                                    <constraint firstAttribute="height" priority="750" constant="500" id="RpZ-AE-YIp"/>
                                     <constraint firstItem="oPX-ed-tNw" firstAttribute="top" secondItem="h7I-tm-jmb" secondAttribute="top" id="UZg-vk-feV"/>
                                     <constraint firstItem="Iaw-ys-0TB" firstAttribute="top" secondItem="h7I-tm-jmb" secondAttribute="top" id="Xxa-TH-25a"/>
                                     <constraint firstAttribute="bottom" secondItem="wN2-TL-kX0" secondAttribute="bottom" id="c7e-eB-4CW"/>
@@ -561,7 +562,6 @@
                         <viewLayoutGuide key="safeArea" id="k7E-He-fig"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="h7I-tm-jmb" secondAttribute="bottom" id="0gg-rf-syZ"/>
                             <constraint firstItem="XSs-5t-mWL" firstAttribute="leading" secondItem="aSK-7g-yya" secondAttribute="leading" id="21F-Mj-1y6"/>
                             <constraint firstItem="Dht-gS-cLu" firstAttribute="leading" secondItem="k7E-He-fig" secondAttribute="leading" constant="20" id="3Q1-WR-NCy"/>
                             <constraint firstAttribute="trailing" secondItem="hGV-eN-jgj" secondAttribute="trailing" constant="12" id="7yB-MH-Fl1"/>
@@ -571,10 +571,10 @@
                             <constraint firstItem="k7E-He-fig" firstAttribute="trailing" secondItem="Dht-gS-cLu" secondAttribute="trailing" constant="20" id="E2W-Qd-Jcz"/>
                             <constraint firstItem="k7E-He-fig" firstAttribute="bottom" secondItem="Dht-gS-cLu" secondAttribute="bottom" constant="20" id="FMO-eZ-KeR"/>
                             <constraint firstItem="JlT-KT-Bym" firstAttribute="leading" secondItem="aSK-7g-yya" secondAttribute="leading" id="JZX-9y-bbv"/>
-                            <constraint firstItem="h7I-tm-jmb" firstAttribute="top" secondItem="aSK-7g-yya" secondAttribute="top" id="JhP-by-t37"/>
                             <constraint firstAttribute="trailing" secondItem="MiU-ky-TGE" secondAttribute="trailing" id="LAf-tD-DNN"/>
                             <constraint firstAttribute="trailing" secondItem="eR9-Dj-3Es" secondAttribute="trailing" id="LyX-xr-sBw"/>
                             <constraint firstAttribute="bottom" secondItem="iZf-Yi-U7z" secondAttribute="bottom" id="N7l-Vj-UFI"/>
+                            <constraint firstItem="h7I-tm-jmb" firstAttribute="height" secondItem="aSK-7g-yya" secondAttribute="height" priority="250" id="NAr-QS-oUF"/>
                             <constraint firstAttribute="trailing" secondItem="ze0-hP-vvd" secondAttribute="trailing" id="QP6-Z5-XSp"/>
                             <constraint firstItem="kas-2g-oaa" firstAttribute="centerX" secondItem="aSK-7g-yya" secondAttribute="centerX" id="Sh1-UB-SD9"/>
                             <constraint firstItem="h7I-tm-jmb" firstAttribute="leading" secondItem="aSK-7g-yya" secondAttribute="leading" id="bwg-h5-RKt"/>
@@ -587,6 +587,7 @@
                             <constraint firstItem="eR9-Dj-3Es" firstAttribute="leading" secondItem="aSK-7g-yya" secondAttribute="leading" id="lxD-Ey-aGC"/>
                             <constraint firstAttribute="trailing" secondItem="h7I-tm-jmb" secondAttribute="trailing" id="ogY-Ek-3eN"/>
                             <constraint firstItem="k7E-He-fig" firstAttribute="bottom" secondItem="kas-2g-oaa" secondAttribute="bottom" constant="12" id="om0-Tq-UDZ"/>
+                            <constraint firstItem="h7I-tm-jmb" firstAttribute="centerY" secondItem="aSK-7g-yya" secondAttribute="centerY" id="qBB-hO-yvI"/>
                             <constraint firstItem="JlT-KT-Bym" firstAttribute="top" secondItem="k7E-He-fig" secondAttribute="top" id="skq-g1-FCW"/>
                             <constraint firstAttribute="trailing" secondItem="XSs-5t-mWL" secondAttribute="trailing" id="sx0-h1-c2r"/>
                             <constraint firstItem="JlT-KT-Bym" firstAttribute="bottom" secondItem="eR9-Dj-3Es" secondAttribute="bottom" id="uIJ-8d-fPb"/>
@@ -601,6 +602,8 @@
                         <outlet property="bottomToolbar" destination="ze0-hP-vvd" id="yyn-h0-LxE"/>
                         <outlet property="canvasImageView" destination="Iaw-ys-0TB" id="Pcd-Dp-CI3"/>
                         <outlet property="canvasView" destination="h7I-tm-jmb" id="nQa-Ul-HUR"/>
+                        <outlet property="canvasViewHeightConstraint" destination="RpZ-AE-YIp" id="vAB-xx-1Jh"/>
+                        <outlet property="canvasViewSuperviewEqualHeightConstraint" destination="NAr-QS-oUF" id="7YX-e3-Hwh"/>
                         <outlet property="clearButton" destination="CBv-bW-hum" id="J7v-NV-Cwv"/>
                         <outlet property="colorPickerView" destination="MiU-ky-TGE" id="zBN-e5-UAV"/>
                         <outlet property="colorPickerViewBottomConstraint" destination="gfw-NL-Kds" id="2OD-Ix-rrc"/>

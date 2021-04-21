@@ -31,6 +31,8 @@ public final class MediaEditorViewController: UIViewController {
     
     /** holding the 2 imageViews original image and drawing & stickers */
     @IBOutlet weak var canvasView: UIView!
+    @IBOutlet weak var canvasViewSuperviewEqualHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var canvasViewHeightConstraint: NSLayoutConstraint!
     //To hold the image
     @IBOutlet weak var imageView: UIImageView!
     //To hold the drawings and stickers
@@ -110,6 +112,7 @@ public final class MediaEditorViewController: UIViewController {
         }
     }
     var videoQuality = VideoQuality.highest
+    var isFullScreenMediaOutput = false
     
     private let queuePlayer = AVQueuePlayer()
     private var playerLooper: AVPlayerLooper?
@@ -119,17 +122,24 @@ public final class MediaEditorViewController: UIViewController {
         super.init(coder: coder)
     }
     
-    public static func makeForImage(_ image: UIImage, continueButtonStyle: ContinueButtonStyle = .icon) -> MediaEditorViewController {
+    public static func makeForImage(_ image: UIImage,
+                                    isFullScreenMediaOutput: Bool = false,
+                                    continueButtonStyle: ContinueButtonStyle = .icon) -> MediaEditorViewController {
         let editor = UIStoryboard(name: "Editor", bundle: Bundle(for: self)).instantiateInitialViewController() as! MediaEditorViewController
         editor.media = .photo(image)
+        editor.isFullScreenMediaOutput = isFullScreenMediaOutput
         editor.defaultHiddenControls = [.trim, .volume]
         editor.continueButtonStyle = continueButtonStyle
         return editor
     }
     
-    public static func makeForVideo(_ url: URL, continueButtonStyle: ContinueButtonStyle = .icon, videoQuality: VideoQuality = .highest) -> MediaEditorViewController {
+    public static func makeForVideo(_ url: URL,
+                                    isFullScreenMediaOutput: Bool = false,
+                                    continueButtonStyle: ContinueButtonStyle = .icon,
+                                    videoQuality: VideoQuality = .highest) -> MediaEditorViewController {
         let editor = UIStoryboard(name: "Editor", bundle: Bundle(for: self)).instantiateInitialViewController() as! MediaEditorViewController
         editor.media = .video(url)
+        editor.isFullScreenMediaOutput = isFullScreenMediaOutput
         editor.defaultHiddenControls = [.crop, .marker]
         editor.continueButtonStyle = continueButtonStyle
         editor.videoQuality = videoQuality
@@ -147,12 +157,14 @@ public final class MediaEditorViewController: UIViewController {
         
         if case .photo(let image) = self.media {
             self.setImageView(image: image)
+            updateCanvasHeight(forImage: image)
         } else if case .video(let url) = self.media {
             let asset = AVURLAsset(url: url)
             let item = AVPlayerItem(asset: asset)
             playerLooper = AVPlayerLooper(player: queuePlayer, templateItem: item)
             videoPlayerView.player = queuePlayer
             trimmerView.delegate = self
+            updateCanvasHeight(forImage: asset.firstFrameAsThumbnail)
         }
         
         deleteView.layer.cornerRadius = deleteView.bounds.height / 2
@@ -216,6 +228,14 @@ public final class MediaEditorViewController: UIViewController {
     
     func setImageView(image: UIImage) {
         imageView.image = image
+    }
+    
+    func updateCanvasHeight(forImage image: UIImage) {
+        guard !isFullScreenMediaOutput else { return }
+        canvasViewSuperviewEqualHeightConstraint.isActive = false
+        let height = image.suitableSize(limit: .width(UIScreen.main.bounds.width)).height
+        canvasViewHeightConstraint.constant = height
+        canvasViewHeightConstraint.isActive = true
     }
     
     func hideToolbar(hide: Bool) {
@@ -296,4 +316,24 @@ extension MediaEditorViewController {
         case photo(UIImage)
         case video(URL)
     }
+}
+
+extension AVURLAsset {
+    /// Returns first frame of the video as a thumbnail `UIImage`. Returns an empty `UIImage()` object if the first frame thumbnail can't be generated.
+    /// - note: Tested only for local video. Network video needs testing when needed.
+    var firstFrameAsThumbnail: UIImage {
+        let imageGenerator = AVAssetImageGenerator(asset: self)
+        imageGenerator.appliesPreferredTrackTransform = true
+        let time = CMTimeMakeWithSeconds(0.0, preferredTimescale: 600)
+        let image: CGImage
+        do {
+            image = try imageGenerator.copyCGImage(at: time, actualTime: nil)
+            let thumbnail = UIImage(cgImage: image)
+            return thumbnail
+        } catch {
+            print("Can't generate image from first frame with error: \(error)")
+            return UIImage()
+        }
+    }
+    
 }
