@@ -31,7 +31,6 @@ public final class MediaEditorViewController: UIViewController {
     
     /** holding the 2 imageViews original image and drawing & stickers */
     @IBOutlet weak var canvasView: UIView!
-    @IBOutlet var canvasViewSuperviewEqualHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var canvasViewHeightConstraint: NSLayoutConstraint!
     //To hold the image
     @IBOutlet weak var imageView: UIImageView!
@@ -231,11 +230,8 @@ public final class MediaEditorViewController: UIViewController {
     }
     
     func updateCanvasHeight(forImage image: UIImage) {
-        guard !isFullScreenMediaOutput else { return }
-        canvasViewSuperviewEqualHeightConstraint.isActive = false
         let height = image.suitableSize(limit: .width(UIScreen.main.bounds.width)).height
         canvasViewHeightConstraint.constant = height
-        canvasViewHeightConstraint.isActive = true
     }
     
     func hideToolbar(hide: Bool) {

@@ -44,7 +44,7 @@
                                     <constraint firstAttribute="bottom" secondItem="oPX-ed-tNw" secondAttribute="bottom" id="HLF-mp-Kf4"/>
                                     <constraint firstAttribute="trailing" secondItem="oPX-ed-tNw" secondAttribute="trailing" id="O7S-iL-A4X"/>
                                     <constraint firstAttribute="trailing" secondItem="Iaw-ys-0TB" secondAttribute="trailing" id="PWm-K3-iCW"/>
-                                    <constraint firstAttribute="height" priority="750" constant="500" id="RpZ-AE-YIp"/>
+                                    <constraint firstAttribute="height" constant="500" id="RpZ-AE-YIp"/>
                                     <constraint firstItem="oPX-ed-tNw" firstAttribute="top" secondItem="h7I-tm-jmb" secondAttribute="top" id="UZg-vk-feV"/>
                                     <constraint firstItem="Iaw-ys-0TB" firstAttribute="top" secondItem="h7I-tm-jmb" secondAttribute="top" id="Xxa-TH-25a"/>
                                     <constraint firstAttribute="bottom" secondItem="wN2-TL-kX0" secondAttribute="bottom" id="c7e-eB-4CW"/>
@@ -574,7 +574,6 @@
                             <constraint firstAttribute="trailing" secondItem="MiU-ky-TGE" secondAttribute="trailing" id="LAf-tD-DNN"/>
                             <constraint firstAttribute="trailing" secondItem="eR9-Dj-3Es" secondAttribute="trailing" id="LyX-xr-sBw"/>
                             <constraint firstAttribute="bottom" secondItem="iZf-Yi-U7z" secondAttribute="bottom" id="N7l-Vj-UFI"/>
-                            <constraint firstItem="h7I-tm-jmb" firstAttribute="height" secondItem="aSK-7g-yya" secondAttribute="height" priority="250" id="NAr-QS-oUF"/>
                             <constraint firstAttribute="trailing" secondItem="ze0-hP-vvd" secondAttribute="trailing" id="QP6-Z5-XSp"/>
                             <constraint firstItem="kas-2g-oaa" firstAttribute="centerX" secondItem="aSK-7g-yya" secondAttribute="centerX" id="Sh1-UB-SD9"/>
                             <constraint firstItem="h7I-tm-jmb" firstAttribute="leading" secondItem="aSK-7g-yya" secondAttribute="leading" id="bwg-h5-RKt"/>
@@ -603,7 +602,6 @@
                         <outlet property="canvasImageView" destination="Iaw-ys-0TB" id="Pcd-Dp-CI3"/>
                         <outlet property="canvasView" destination="h7I-tm-jmb" id="nQa-Ul-HUR"/>
                         <outlet property="canvasViewHeightConstraint" destination="RpZ-AE-YIp" id="vAB-xx-1Jh"/>
-                        <outlet property="canvasViewSuperviewEqualHeightConstraint" destination="NAr-QS-oUF" id="7YX-e3-Hwh"/>
                         <outlet property="clearButton" destination="CBv-bW-hum" id="J7v-NV-Cwv"/>
                         <outlet property="colorPickerView" destination="MiU-ky-TGE" id="zBN-e5-UAV"/>
                         <outlet property="colorPickerViewBottomConstraint" destination="gfw-NL-Kds" id="2OD-Ix-rrc"/>
