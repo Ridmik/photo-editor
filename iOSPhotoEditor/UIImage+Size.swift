@@ -23,10 +23,10 @@ public extension UIImage {
         switch limit {
         case .width(let width):
             let height = (width / self.size.width) * self.size.height
-            return CGSize(width: width, height: height)
+            return CGSize(width: width, height: min(height, UIScreen.main.bounds.height))
         case .height(let height):
             let width = (height / self.size.height) * self.size.width
-            return CGSize(width: width, height: height)
+            return CGSize(width: min(width, UIScreen.main.bounds.width), height: height)
         }
         
     }

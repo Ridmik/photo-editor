@@ -31,7 +31,7 @@ public final class MediaEditorViewController: UIViewController {
     
     /** holding the 2 imageViews original image and drawing & stickers */
     @IBOutlet weak var canvasView: UIView!
-    @IBOutlet weak var canvasViewSuperviewEqualHeightConstraint: NSLayoutConstraint!
+    @IBOutlet var canvasViewSuperviewEqualHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var canvasViewHeightConstraint: NSLayoutConstraint!
     //To hold the image
     @IBOutlet weak var imageView: UIImageView!
@@ -157,7 +157,6 @@ public final class MediaEditorViewController: UIViewController {
         
         if case .photo(let image) = self.media {
             self.setImageView(image: image)
-            updateCanvasHeight(forImage: image)
         } else if case .video(let url) = self.media {
             let asset = AVURLAsset(url: url)
             let item = AVPlayerItem(asset: asset)
@@ -228,6 +227,7 @@ public final class MediaEditorViewController: UIViewController {
     
     func setImageView(image: UIImage) {
         imageView.image = image
+        updateCanvasHeight(forImage: image)
     }
     
     func updateCanvasHeight(forImage image: UIImage) {
