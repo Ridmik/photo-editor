@@ -42,7 +42,7 @@ extension MediaEditorViewController {
                 return
             }
             
-            let videoSize = isFullScreenMediaOutput ? view.bounds.size : compositionTrack.naturalSize // logical size of video shown on screen
+            let videoSize = isFullScreenMediaOutput ? view.bounds.size : canvasImageView.bounds.size // logical size of video shown on screen
             let scale = UIScreen.main.scale
             let renderSize = CGSize(width: videoSize.width * scale, height: videoSize.height * scale)
             
