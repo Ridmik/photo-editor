@@ -230,7 +230,7 @@ public final class MediaEditorViewController: UIViewController {
     }
     
     func updateCanvasHeight(forImage image: UIImage) {
-        let height = image.suitableSize(limit: .width(UIScreen.main.bounds.width)).height
+        let height = isFullScreenMediaOutput ? view.bounds.size.height : image.suitableSize(limit: .width(UIScreen.main.bounds.width)).height
         canvasViewHeightConstraint.constant = height
     }
     
